@@ -58,17 +58,20 @@ li {
     position: absolute;
     width: 50px;
     height: 50px;
-    background-color: #fff;
+    /* background-color: #fff; */
     top: 1%;
     left: 88%;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
+    cursor: pointer;
   }
   .a {
-    width: 40px;
-    height: 1px;
-    padding: 1px;
+    position: absolute;
+    width: 25px;
+    height: 3px;
+    /* padding: 1px; */
+    margin-left: 20px;
     background-color: #000;
     color: #000;
   }
@@ -83,6 +86,7 @@ li {
     margin-top: 10px;
   }
   .a::after {
+    margin-left: -30px;
     position: absolute;
     margin-top: -10px;
     content: "";
