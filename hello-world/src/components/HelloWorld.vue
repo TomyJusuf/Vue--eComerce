@@ -58,47 +58,76 @@ li {
     position: absolute;
     width: 50px;
     height: 50px;
-    /* background-color: #fff; */
     top: 1%;
     left: 88%;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     cursor: pointer;
+    /* transition: all 0.4s ease-in-out; */
   }
+
   .a {
     position: absolute;
-    width: 25px;
+    width: 20px;
     height: 3px;
-    /* padding: 1px; */
     margin-left: 20px;
     background-color: #000;
     color: #000;
+    transition: all 0.4s ease-in;
   }
   .a::before {
     content: "";
     width: 10px;
     height: 1px;
     padding: 1px;
-    background-color: #000;
+    background-color: black;
     color: #000;
     position: absolute;
     margin-top: 10px;
+    margin-left: -2px;
+    transition: all 0.4s ease-in-out;
   }
   .a::after {
-    margin-left: -30px;
+    margin-left: -25px;
     position: absolute;
     margin-top: -10px;
     content: "";
-    width: 40px;
+    width: 32px;
     height: 1px;
     padding: 1px;
+    background-color: black;
+    color: #000;
+    transition: all 0.4s ease-in-out;
+  }
+
+  .cross:hover .a {
+    position: absolute;
+    width: 0px;
+    height: 3px;
+    margin-left: 10px;
     background-color: #000;
     color: #000;
   }
+  .cross:hover .a::after {
+    width: 20px;
+    position: absolute;
+    margin-top: 1px;
+    transform: rotate(140deg);
+    margin-left: -2px;
+    background-color: #000;
+  }
+  .cross:hover .a::before {
+    position: absolute;
+    margin-top: 0px;
+    width: 20px;
+    margin-left: -2px;
+    transform: rotate(-140deg);
+    background-color: #000;
+  }
+
   nav {
     height: 100%;
-    /* background: red; */
     flex-wrap: wrap;
     display: flex;
   }
@@ -122,14 +151,13 @@ li {
     align-content: center;
   }
   li {
-    /* display: none; */
+    display: none;
     display: block;
     align-items: center;
     padding-top: 5px;
     margin: 1px auto;
     min-width: 350px;
     height: 50px;
-    /* text-decoration: underline; */
     border-bottom-width: 1px;
     border-bottom-style: solid;
     text-transform: uppercase;
