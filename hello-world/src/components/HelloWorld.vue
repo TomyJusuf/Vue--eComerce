@@ -2,10 +2,10 @@
   <nav>
     <div class="navbar">
       <div class="log">Logo</div>
-      <div class="cross">
+      <div class="cross" v-on:click="switchBar = !switchBar">
         <div class="a"></div>
       </div>
-      <div class="info">
+      <div class="info" :class="togleClass">
         <li>Home</li>
         <li>Info</li>
         <li>Galery</li>
@@ -21,6 +21,18 @@ export default {
   name: "HelloWorld",
   props: {
     msg: String,
+  },
+  data() {
+    return {
+      switchBar: false,
+    };
+  },
+  computed: {
+    togleClass() {
+      return {
+        close: this.switchBar,
+      };
+    },
   },
 };
 </script>
@@ -141,6 +153,7 @@ li {
     height: 50px;
     padding-top: 5px;
   }
+
   .info {
     width: 350px;
     display: flex;
@@ -150,8 +163,13 @@ li {
     row-gap: 5px;
     align-content: center;
   }
-  li {
+  .close {
+    transition: 1.7s ease-in-out;
     display: none;
+  }
+
+  li {
+    /* display: none; */
     display: block;
     align-items: center;
     padding-top: 5px;
