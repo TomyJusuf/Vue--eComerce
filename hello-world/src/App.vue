@@ -1,11 +1,15 @@
 <template>
-  <div>{{ greet }} {{ name }}</div>
+  <Navbar />
+
+  <!-- <div>{{ greet }} {{ name }}</div>
   <div v-html="channel"></div>
   <div v-text="channel"></div>
   <h2 v-bind:id="headingId">Heading</h2>
+  <button v-bind:disabled="isDisables">Bind</button> -->
 </template>
 
 <script>
+import Navbar from "./components/Navbar.vue";
 export default {
   name: "App",
   data() {
@@ -14,8 +18,10 @@ export default {
       name: "Tomas",
       channel: "<b>Coco-Logo</b>",
       headingId: "heading",
+      isDisables: false,
     };
   },
+  components: { Navbar },
 };
 </script>
 
