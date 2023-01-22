@@ -1,5 +1,6 @@
 <template>
   <div>{{ greet }} {{ name }}</div>
+  <div v-html="element"></div>
   <div v-text="channel"></div>
 </template>
 
@@ -11,6 +12,7 @@ export default {
       greet: "Hello",
       name: "Tomas",
       channel: "Rassass",
+      element: "<b>Texting html element</b>",
     };
   },
 };
