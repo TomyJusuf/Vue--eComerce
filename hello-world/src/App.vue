@@ -1,5 +1,6 @@
 <template>
-  <h1>{{ name }}</h1>
+  <div>{{ greet }} {{ name }}</div>
+  <div v-text="channel"></div>
 </template>
 
 <script>
@@ -7,7 +8,9 @@ export default {
   name: "App",
   data() {
     return {
+      greet: "Hello",
       name: "Tomas",
+      channel: "Rassass",
     };
   },
 };
