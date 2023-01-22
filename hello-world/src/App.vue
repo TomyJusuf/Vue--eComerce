@@ -4,6 +4,18 @@
   <button v-bind:disabled="isDisabled">Bind</button>
   <h2 class="underline">Underline text</h2>
   <h2 v-bind:class="underline">Text</h2>
+  <h2
+    v-bind:style="{
+      background: hightlight,
+      fontSize: headerSize + 'px',
+    }"
+  >
+    Inline Style
+  </h2>
+  <h2 v-bind:style="headerStyleOBject">Style Object</h2>
+
+  <div v-bind:style="[baseStyleObject, successStyleObject]">Success Style</div>
+  <div v-bind:style="[baseStyleObject, dangerStyleObject]">Danger Style</div>
 </template>
 
 <script>
@@ -18,6 +30,27 @@ export default {
       headingId: "heading",
       isDisabled: true,
       underline: "underline",
+      hightlight: "orange",
+      headerSize: 50,
+      headerStyleOBject: {
+        color: "orange",
+        fontSize: "50px",
+        padding: "20px",
+      },
+      baseStyleObject: {
+        fontSize: "50px",
+        padding: "10px",
+      },
+      successStyleObject: {
+        color: "green",
+        backgroundColor: "lightgreen",
+        border: "1px solid green",
+      },
+      dangerStyleObject: {
+        color: "darkred",
+        backgroundColor: "red",
+        border: "1px solid darkred",
+      },
     };
   },
   // components: { Navbar },

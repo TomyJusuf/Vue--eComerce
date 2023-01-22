@@ -167,7 +167,6 @@ li {
     align-content: center;
   }
   .close {
-    transition: 1.7s ease-in-out;
     display: none;
   }
 
