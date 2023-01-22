@@ -2,6 +2,9 @@
   <div>{{ greet }} {{ name }}</div>
   <div v-html="element"></div>
   <div v-text="channel"></div>
+  <li v-for="(item, index) in items" :key="item.id">
+    {{ parentMessage }} - {{ index }} - {{ item.message }}
+  </li>
 </template>
 
 <script>
@@ -12,7 +15,9 @@ export default {
       greet: "Hello",
       name: "Tomas",
       channel: "Rassass",
-      element: "<b>Texting html element</b>",
+      element: `<b>${this.greet}</b>`,
+      parentMessage: "Parent",
+      items: [{ message: "Foo" }, { message: "Bar" }],
     };
   },
 };
