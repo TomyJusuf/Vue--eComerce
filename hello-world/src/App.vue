@@ -4,6 +4,14 @@
   <h1 v-else-if="num < 0">The number is negativ</h1>
   <h1 v-else-if="num > 0">The number is positive</h1>
   <h1 v-else>not a number</h1>
+
+  <template v-if="display">
+    <h2>Tomas</h2>
+    <h2>Matusek</h2>
+    <h2>Learn VueJs</h2>
+  </template>
+  <h2 v-show="showElement">Using v-show</h2>
+  <h2 v-if="showElement">Using v-if</h2>
 </template>
 
 <script>
@@ -13,6 +21,8 @@ export default {
   data() {
     return {
       num: 5,
+      display: true,
+      showElement: false,
     };
   },
   // components: { Navbar },
