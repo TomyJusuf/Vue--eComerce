@@ -1,49 +1,47 @@
 <template>
-  <!-- <Navbar /> -->
-  <h1 v-if="num === 0">The number is zero</h1>
-  <h1 v-else-if="num < 0">The number is negativ</h1>
-  <h1 v-else-if="num > 0">The number is positive</h1>
-  <h1 v-else>not a number</h1>
-
-  <template v-if="display">
-    <h2>Tomas</h2>
-    <h2>Matusek</h2>
-    <h2>Learn VueJs</h2>
-  </template>
-  <h2 v-show="showElement">Using v-show</h2>
-  <h2 v-if="showElement">Using v-if</h2>
+  <Navbar />
+  <!-- <h1 v-for="(name, index) in names" :key="name">{{ index }} {{ name }}</h1>
+  <div v-for="name in fullName" :key="name">
+    <li>{{ name.first }} {{ name.last }}</li>
+    <hr />
+  </div> -->
+  <CardSection />
 </template>
 
 <script>
-// import Navbar from "./components/Navbar.vue";
+import Navbar from "./components/Navbar.vue";
+import CardSection from "./components/CardSection.vue";
 export default {
   name: "App",
   data() {
     return {
-      num: 5,
-      display: true,
-      showElement: false,
+      names: ["Bruse", "Clark", "Diana"],
+      fullName: [
+        { first: "Bruce", last: "Wayne" },
+        { first: "Clark", last: "Kent" },
+        { first: "Princess", last: "Diana" },
+      ],
     };
   },
-  // components: { Navbar },
+  components: { CardSection, Navbar },
 };
 </script>
 
 <style>
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap");
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap");
 #app {
   font-family: "Poppins", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #fff;
-  margin-top: 0px;
-  background-color: #61a4e7;
+  /* margin-top: 0px; */
+  /* background-color: #61a4e7; */
 }
 .underline {
   text-decoration: underline;

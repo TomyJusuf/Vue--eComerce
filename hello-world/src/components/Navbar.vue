@@ -1,12 +1,12 @@
 <template>
-  <nav v-bind:style="nav">
-    <div v-bind:style="navbar">
-      <div v-bind:style="logo">Logo</div>
+  <nav>
+    <div class="navbar">
+      <div class="log">Logo</div>
       <div class="cross" v-on:click="switchBar = !switchBar">
         <div class="a"></div>
       </div>
-      <div v-bind:style="info" v-bind:class="[togleClass]">
-        <li v-for="item in items" :key="item">{{ item.navbar }}</li>
+      <div class="info" :class="togleClass">
+        <li v-for="item in items" :key="item">{{ item }}</li>
       </div>
     </div>
   </nav>
@@ -14,39 +14,14 @@
 
 <script>
 export default {
-  name: "navbarTemplate",
+  name: "HelloWorld",
   props: {
     msg: String,
   },
   data() {
     return {
       switchBar: false,
-      items: [
-        { navbar: "Home" },
-        { navbar: "Info" },
-        { navbar: "Galery" },
-        { navbar: "SHop" },
-        { navbar: "Contact" },
-      ],
-      nav: {
-        margin: "0px 10px",
-      },
-      navbar: {
-        display: "flex",
-        padding: "10px",
-        alignItems: "center",
-        justifyContent: "space-between",
-        fontSize: "25px",
-        flexWrap: "wrap",
-      },
-      logo: {
-        display: "inline-block",
-      },
-      info: {
-        display: "flex",
-        justifyContent: " center",
-        alignItems: "center",
-      },
+      items: ["home", "Info", "Galery", "Shop"],
     };
   },
   computed: {
@@ -61,6 +36,27 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+nav {
+  margin: 0px auto;
+  width: 100%;
+  background-color: #61a4e7;
+}
+.navbar {
+  display: flex;
+  padding: 10px;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 25px;
+  flex-wrap: wrap;
+}
+.log {
+  display: inline-block;
+}
+.info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 li {
   width: 90px;
   height: 100%;
@@ -145,14 +141,17 @@ li {
     height: 100%;
     flex-wrap: wrap;
     display: flex;
+    justify-content: center;
   }
   navbar {
+    justify-content: center;
     align-items: center;
     row-gap: 5px;
   }
   .log {
-    margin: 0 auto 10px;
-    width: 450px;
+    display: block;
+    margin: 0 20% 10px;
+    width: 400px;
     height: 50px;
     padding-top: 5px;
   }
@@ -161,12 +160,12 @@ li {
     width: 350px;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
     margin: 0 auto;
     row-gap: 5px;
     align-content: center;
   }
   .close {
+    transition: 1.7s ease-in-out;
     display: none;
   }
 
