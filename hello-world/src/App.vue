@@ -1,10 +1,8 @@
 <template>
   <div>{{ greet }} {{ name }}</div>
-  <div v-html="element"></div>
+  <div v-html="channel"></div>
   <div v-text="channel"></div>
-  <li v-for="(item, index) in items" :key="item.id">
-    {{ parentMessage }} - {{ index }} - {{ item.message }}
-  </li>
+  <h2 v-bind:id="headingId">Heading</h2>
 </template>
 
 <script>
@@ -14,10 +12,8 @@ export default {
     return {
       greet: "Hello",
       name: "Tomas",
-      channel: "Rassass",
-      element: `<b>${this.greet}</b>`,
-      parentMessage: "Parent",
-      items: [{ message: "Foo" }, { message: "Bar" }],
+      channel: "<b>Coco-Logo</b>",
+      headingId: "heading",
     };
   },
 };
