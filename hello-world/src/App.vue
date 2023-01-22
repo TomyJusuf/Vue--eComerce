@@ -1,6 +1,6 @@
 <template>
-  <!-- <Navbar /> -->
-  <h2 v-bind:id="headingId">Heading</h2>
+  <Navbar />
+  <!-- <h2 v-bind:id="headingId">Heading</h2>
   <button v-bind:disabled="isDisabled">Bind</button>
   <h2 class="underline">Underline text</h2>
   <h2 v-bind:class="underline">Text</h2>
@@ -15,11 +15,11 @@
   <h2 v-bind:style="headerStyleOBject">Style Object</h2>
 
   <div v-bind:style="[baseStyleObject, successStyleObject]">Success Style</div>
-  <div v-bind:style="[baseStyleObject, dangerStyleObject]">Danger Style</div>
+  <div v-bind:style="[baseStyleObject, dangerStyleObject]">Danger Style</div> -->
 </template>
 
 <script>
-// import Navbar from "./components/Navbar.vue";
+import Navbar from "./components/Navbar.vue";
 export default {
   name: "App",
   data() {
@@ -53,7 +53,7 @@ export default {
       },
     };
   },
-  // components: { Navbar },
+  components: { Navbar },
 };
 </script>
 
