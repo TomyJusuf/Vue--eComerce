@@ -1,20 +1,27 @@
 <template>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
   <div class="container-card">
     <div class="border-card">
-      <h1>Make trip to The Best destination in world.</h1>
+      <h1>Make trip <br />The Best destination in world.</h1>
 
       <div class="card" v-for="card in cards" :key="card">
         <div class="picture-box">
-          <img
-            src="https://media.istockphoto.com/id/1299265795/photo/family-vacation-holiday-happy-family-running-on-the-beach-in-the-sunset-back-view-of-a-happy.jpg?s=612x612&w=0&k=20&c=LQHDTNEzba2gMcpjXCNuRrwIV6Yi3nYvJiomJYuU6No="
-            alt=""
-            srcset=""
-            class="imagePicture"
-            img
-          />
+          <img v-bind:src="card.image" class="imagePicture" img />
         </div>
         <div class="title">
           <h2>{{ card.nameDestination }}</h2>
+        </div>
+        <br />
+        <div class="icons-bar">
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
         </div>
         <h4 class="order">{{ card.start }} - {{ card.end }}</h4>
         <!-- <h3 class="visit">Visit</h3> -->
@@ -38,66 +45,117 @@ export default {
           picture: "image",
           start: "Fr, 10.may",
           end: "Di, 14.may",
+          image:
+            "https://static.independent.co.uk/s3fs-public/thumbnails/image/2020/04/14/17/istock-958597180.jpg?quality=75&width=982&height=726&auto=webp",
         },
         {
           nameDestination: "New Zealand",
           price: 600,
           picture: "image",
+          start: "Fr, 10.may",
+          end: "Di, 14.may",
+          image:
+            "https://www.twowanderingsoles.com/wp-content/uploads/2021/07/img_60ee7d07ab465.jpg",
         },
         {
           nameDestination: "Maui",
           price: 900,
           picture: "image",
+          start: "Fr, 10.may",
+          end: "Di, 14.may",
+          image:
+            "https://www.travelandleisure.com/thmb/Zc6w093C6a7OlsANt7aOeqAjXTU=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/maui-hawaii-MAUITG0221-50725a14980e4a3382eab85f50339099.jpg",
         },
         {
           nameDestination: "Bora Bora",
           price: 1500,
           picture: "image",
+          start: "Fr, 10.may",
+          end: "Di, 14.may",
+          image:
+            "https://media.triseptsolutions.com/sites/vaxwebuav/PublishingImages/UV_destinations/dest_BOB_thumb2.jpg",
         },
         {
           nameDestination: "Tahiti",
           price: 3500,
           picture: "image",
+          start: "Fr, 10.may",
+          end: "Di, 14.may",
+          image:
+            "https://pictures.tripmasters.com/images/packages1/french_polynesia/frenchpolynesia-tahiti-bungalow500.jpg",
         },
         {
           nameDestination: "London",
           price: 2500,
           picture: "image",
+          start: "Fr, 10.may",
+          end: "Di, 14.may",
+          image:
+            "https://image.urlaubspiraten.de/720/image/upload/v1603987364/mediavault_images/big_ben_london_city_trip_lk35rm.png",
         },
         {
-          nameDestination: "Bora Bora",
+          nameDestination: "Holand",
           price: 1500,
           picture: "image",
+          start: "Fr, 10.may",
+          end: "Di, 14.may",
+          image:
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-Isn9Tpp7lGdr7XG6IOhlGW__MNDK0-n-iA&usqp=CAU",
         },
         {
-          nameDestination: "Tahiti",
+          nameDestination: "Kanada",
           price: 3500,
           picture: "image",
+          start: "Fr, 10.may",
+          end: "Di, 14.may",
+          image:
+            "https://res.cloudinary.com/worldpackers/image/upload/c_fill,f_auto,q_auto,w_1024/v1/guides/article_cover/vae4vwglxryqdd1owwth",
         },
         {
-          nameDestination: "London",
+          nameDestination: "USA",
           price: 2500,
           picture: "image",
+          start: "Fr, 10.may",
+          end: "Di, 14.may",
+          image:
+            "https://i2-prod.mirror.co.uk/incoming/article23789788.ece/ALTERNATES/n615/1_Young-lady-visiting-Statue-of-Liberty-in-New-York.jpg",
         },
         {
-          nameDestination: "London",
+          nameDestination: "Swizerland",
           price: 2500,
           picture: "image",
+          start: "Fr, 10.may",
+          end: "Di, 14.may",
+          image:
+            "https://www.myglobalviewpoint.com/wp-content/uploads/2020/01/Most-beautiful-places-in-Switzerland.jpg",
         },
+
         {
-          nameDestination: "Bora Bora",
+          nameDestination: "Austria",
           price: 1500,
           picture: "image",
+          start: "Fr, 10.may",
+          end: "Di, 14.may",
+          image:
+            "https://travelpassionate.com/wp-content/uploads/2019/04/Scenic-view-of-famous-Hallstatt-village-in-the-Austrian-Alps.-Image-min.jpg",
         },
         {
-          nameDestination: "Tahiti",
+          nameDestination: "Czech Republic",
           price: 3500,
           picture: "image",
+          start: "Fr, 10.may",
+          end: "Di, 14.may",
+          image:
+            "https://media.wired.co.uk/photos/606db186a329c00890ec0888/master/w_1600%2Cc_limit/czech-republic-prague.jpg",
         },
         {
-          nameDestination: "London",
+          nameDestination: "Italia",
           price: 2500,
           picture: "image",
+          start: "Fr, 10.may",
+          end: "Di, 14.may",
+          image:
+            "https://lp-cms-production.imgix.net/features/2017/11/GettyRF_543346423-1-ab159824d5bd.jpg",
         },
       ],
     };
@@ -109,20 +167,22 @@ export default {
 .container-card {
   display: flex;
   flex-wrap: wrap;
-  background-color: rgb(223, 21, 21);
-  max-width: 1030px;
+  background-color: rgb(255, 255, 255);
+  max-width: 1300px;
   height: 99%;
   margin: 150px auto;
   padding: 1px 1px;
   gap: 10px 20px;
   justify-content: center;
   border-radius: 15px;
+  /* border: 10px solid red; */
 }
 .border-card {
   display: flex;
   flex-wrap: wrap;
-  background-color: rgb(236, 174, 174);
-  max-width: 1000px;
+  background-color: rgb(238, 238, 238);
+
+  max-width: 1100px;
   height: 100%;
   margin: 15px auto;
   padding: 10px 10px;
@@ -143,6 +203,7 @@ export default {
   width: 100%;
   display: block;
   margin-bottom: 25px;
+  color: #000;
 }
 
 .border-card .card {
@@ -151,8 +212,10 @@ export default {
   flex-direction: row;
   flex: 0 250px;
   max-width: 230px;
-  height: 250px;
-  background-color: rgb(217, 217, 231);
+  height: 300px;
+  background-color: rgb(255, 255, 255);
+  /* box-shadow: 3px 2px 4px rgb(65, 63, 63); */
+
   flex-wrap: wrap;
   justify-content: center;
   align-items: flex-start;
@@ -162,7 +225,8 @@ export default {
 .card > .title {
   font-size: 15px;
   color: black;
-
+  display: block;
+  width: 100%;
   margin-top: 0px;
   text-decoration: underline;
 }
@@ -209,6 +273,9 @@ export default {
 .card h4 {
   font-size: 13px;
 }
+.icons-bar > .fa-solid {
+  color: rgb(255, 217, 0);
+}
 .card button {
   display: inline-flex;
   width: 60px;
@@ -223,5 +290,11 @@ export default {
   font-size: 15px;
   font-weight: bold;
   margin-left: 5px;
+  background-color: cornflowerblue;
+}
+.border-card > .card:hover {
+  scale: 1.2;
+  z-index: 10;
+  box-shadow: 5px 5px 4px rgb(65, 63, 63);
 }
 </style>
