@@ -1,20 +1,27 @@
 <template>
   <div class="container-card">
-    <div class="card" v-for="card in cards" :key="card">
-      <div class="title">
-        <h2>{{ card.nameDestination }}</h2>
+    <div class="border-card">
+      <h1>Make trip to The Best destination in world.</h1>
+
+      <div class="card" v-for="card in cards" :key="card">
+        <div class="picture-box">
+          <img
+            src="https://media.istockphoto.com/id/1299265795/photo/family-vacation-holiday-happy-family-running-on-the-beach-in-the-sunset-back-view-of-a-happy.jpg?s=612x612&w=0&k=20&c=LQHDTNEzba2gMcpjXCNuRrwIV6Yi3nYvJiomJYuU6No="
+            alt=""
+            srcset=""
+            class="imagePicture"
+            img
+          />
+        </div>
+        <div class="title">
+          <h2>{{ card.nameDestination }}</h2>
+        </div>
+        <h4 class="order">{{ card.start }} - {{ card.end }}</h4>
+        <!-- <h3 class="visit">Visit</h3> -->
+        <h3>
+          price: <button>{{ card.price }}e</button>
+        </h3>
       </div>
-      <div class="picture-box">
-        <img
-          src="image/image1.jpeg"
-          alt=""
-          srcset=""
-          class="imagePicture"
-          img
-        />
-      </div>
-      <h3>price: {{ card.price }}$</h3>
-      <button>Order now</button>
     </div>
   </div>
 </template>
@@ -29,6 +36,8 @@ export default {
           nameDestination: "Paris",
           price: 500,
           picture: "image",
+          start: "Fr, 10.may",
+          end: "Di, 14.may",
         },
         {
           nameDestination: "New Zealand",
@@ -55,6 +64,41 @@ export default {
           price: 2500,
           picture: "image",
         },
+        {
+          nameDestination: "Bora Bora",
+          price: 1500,
+          picture: "image",
+        },
+        {
+          nameDestination: "Tahiti",
+          price: 3500,
+          picture: "image",
+        },
+        {
+          nameDestination: "London",
+          price: 2500,
+          picture: "image",
+        },
+        {
+          nameDestination: "London",
+          price: 2500,
+          picture: "image",
+        },
+        {
+          nameDestination: "Bora Bora",
+          price: 1500,
+          picture: "image",
+        },
+        {
+          nameDestination: "Tahiti",
+          price: 3500,
+          picture: "image",
+        },
+        {
+          nameDestination: "London",
+          price: 2500,
+          picture: "image",
+        },
       ],
     };
   },
@@ -62,83 +106,64 @@ export default {
 </script>
 
 <style scoped>
-.container {
-  display: flex;
-  flex-direction: row;
-  height: 45px;
-  justify-content: center;
-  align-items: flex-start;
-}
-
-.container > ul {
-  align-items: center;
-  display: flex;
-  width: 100%;
-  background-color: var(--bg-color);
-  list-style-type: none;
-  flex-direction: row;
-  padding: 10px 30px;
-  gap: 20px;
-  font-size: 30px;
-  font-weight: bold;
-}
-
-ul > .log {
-  flex: 1;
-  justify-content: flex-start;
-}
-
 .container-card {
   display: flex;
   flex-wrap: wrap;
-  background-color: var(--color);
-  max-width: 1050px;
-  height: 100%;
-  margin: 100px auto;
-  padding: 10px 10px;
-  gap: 10px 50px;
+  background-color: rgb(223, 21, 21);
+  max-width: 1030px;
+  height: 99%;
+  margin: 150px auto;
+  padding: 1px 1px;
+  gap: 10px 20px;
   justify-content: center;
-  padding-bottom: 100px !important;
   border-radius: 15px;
 }
-.container-card h1 {
-  font-size: 70px;
+.border-card {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: rgb(236, 174, 174);
+  max-width: 1000px;
+  height: 100%;
+  margin: 15px auto;
+  padding: 10px 10px;
+  gap: 10px 20px;
   justify-content: center;
-  align-self: flex-start;
-  margin-top: 20px;
-  position: absolute;
-}
-p {
-  font-size: 20px;
-  margin-top: 50px;
-  position: relative;
-  color: rgb(43, 34, 34);
-  text-align: justify;
-  width: 550px;
+  padding-bottom: 10px !important;
+  border-radius: 15px;
 }
 
-.card {
-  margin-top: 130px;
+.border-card h1 {
+  max-width: 1080px;
+  font-size: 2.3rem;
+  justify-content: center;
+  align-self: flex-start;
+  margin-top: 30px;
+  position: relative;
+  flex-wrap: wrap;
+  width: 100%;
+  display: block;
+  margin-bottom: 25px;
+}
+
+.border-card .card {
+  margin-top: 10px;
   display: flex;
   flex-direction: row;
   flex: 0 250px;
-  max-width: 250px;
-  height: 400px;
-  background-color: var(--bg-color);
-  box-shadow: 5px -4px 7px rgb(165, 156, 156);
+  max-width: 230px;
+  height: 250px;
+  background-color: rgb(217, 217, 231);
   flex-wrap: wrap;
   justify-content: center;
   align-items: flex-start;
   color: black;
-  border-radius: 15px;
+  border-radius: 10px 10px 10px 10px;
 }
 .card > .title {
-  display: flex;
-  font-size: 20px;
+  font-size: 15px;
   color: black;
 
-  align-items: center;
-  margin-top: 15px;
+  margin-top: 0px;
   text-decoration: underline;
 }
 .card > .picture-box {
@@ -146,7 +171,6 @@ p {
   display: inline-flex;
   flex-direction: column;
   align-self: flex-start;
-  border: 3px solid black;
   margin-top: 0px;
   justify-self: center;
   border-radius: 8px;
@@ -155,35 +179,49 @@ p {
   width: 230px;
   height: 150px;
   overflow: hidden;
-  border-radius: 7px;
+  border-radius: 5px;
+  border-radius: 5px 5px 0 0;
 }
 .card h3 {
-  display: flex;
+  display: inline-block;
+  position: relative;
   width: 100%;
-  justify-content: center;
   text-align: center;
-  align-self: flex-start;
-  margin-top: 70px;
+  align-self: flex-end;
+  margin: 0 0px 5px 105px;
   color: #000;
-  font-size: 25px;
-  font-weight: bold;
+  font-size: 10px;
+  font-weight: normal;
 }
 
+.card .visit {
+  display: inline-block;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0;
+  font-size: 15px;
+  position: relative;
+}
+.card .order {
+  padding: 0 25px !important;
+}
+
+.card h4 {
+  font-size: 13px;
+}
 .card button {
-  display: flex;
-  width: 150px;
-  height: 30px;
-  padding: 0 auto;
+  display: inline-flex;
+  width: 60px;
+  height: 20px;
   align-items: center;
   justify-content: center;
   align-self: flex-start;
   border: none;
-  box-shadow: 5px -4px 7px rgb(90, 84, 84);
   cursor: pointer;
   border-radius: 4px;
-  background-color: rgb(226, 224, 200);
   color: rgb(26, 21, 21);
-  font-size: 19px;
+  font-size: 15px;
   font-weight: bold;
+  margin-left: 5px;
 }
 </style>
