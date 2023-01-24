@@ -1,29 +1,42 @@
 <template>
-  <Navbar />
-  <!-- <h1 v-for="(name, index) in names" :key="name">{{ index }} {{ name }}</h1>
-  <div v-for="name in fullName" :key="name">
-    <li>{{ name.first }} {{ name.last }}</li>
-    <hr />
-  </div> -->
-  <CardSection />
+  <!-- <Navbar />
+  <CardSection /> -->
+  <template v-for="name in names" :key="name">
+    <h2 v-if="name === 'Bruce'">{{ name }}</h2>
+  </template>
 </template>
 
 <script>
-import Navbar from "./components/Navbar.vue";
-import CardSection from "./components/CardSection.vue";
+// import Navbar from "./components/Navbar.vue";
+// import CardSection from "./components/CardSection.vue";
 export default {
   name: "App",
   data() {
     return {
-      names: ["Bruse", "Clark", "Diana"],
+      names: ["Bruce", "Clark", "Diana"],
       fullName: [
         { first: "Bruce", last: "Wayne" },
         { first: "Clark", last: "Kent" },
         { first: "Princess", last: "Diana" },
       ],
+      actors: [
+        {
+          name: "Christian Bale",
+          movies: ["Barman", "The Prestige"],
+        },
+        {
+          name: "Di Caprio",
+          movies: ["Titanic", "Inceprion"],
+        },
+      ],
+      myInfo: {
+        name: "Tomas",
+        channel: "Developer",
+        couse: "Vue 3",
+      },
     };
   },
-  components: { CardSection, Navbar },
+  // components: { CardSection, Navbar },
 };
 </script>
 
@@ -41,7 +54,7 @@ export default {
   text-align: center;
   color: #fff;
   /* margin-top: 0px; */
-  /* background-color: #61a4e7; */
+  background-color: #61a4e7;
 }
 .underline {
   text-decoration: underline;
