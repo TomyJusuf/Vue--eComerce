@@ -1,33 +1,52 @@
 <template>
-  <!-- <Navbar />
-  <CardSection /> -->
-  <h2>{{ 2 + 3 + 5 }}</h2>
-  <h2>Add method - {{ add(5, 10, 15) }}</h2>
-  <h2>Multiply method- {{ multiply(baseValue) }}</h2>
+  <!-- <Navbar /> -->
+  <!-- <CardSection /> -->
+  <h2>{{ name }}</h2>
+  <div>
+    <button v-on:mouseover="name = 'Batman'">Change name</button>
+  </div>
+  <h2>{{ count }}</h2>
+  <div>
+    <button v-on:click="increment(10)" @click="method1(multiPly)">
+      increment
+    </button>
+    <button v-on:click="decrement(10)" @click="method2(devide)">
+      decrement
+    </button>
+  </div>
+  <div @click="handler1(multiPly)">Hi, click me!</div>
+  <div @click="handler(devide)">Hi, click me!</div>
 </template>
 
 <script>
-// import Navbar from "./components/Navbar.vue";
 // import CardSection from "./components/CardSection.vue";
+// import Navbar from "./components/Navbar.vue";
 export default {
   name: "App",
   data() {
     return {
-      names: ["Bruce", "Clark", "Diana"],
-      baseMultiplier: 5,
-      baseValue: 2,
+      name: "Tomas",
+      count: 0,
+      multiPly: 150,
+      devide: 150,
+      count2: 0,
     };
   },
-  methods: {
-    add(a, b, c) {
-      return a + b + c;
-    },
-    multiply(num) {
-      return num * this.baseMultiplier;
-    },
-  },
-
-  // components: { CardSection, Navbar },
+  // methods: {
+  //   increment(num) {
+  //     this.count += num;
+  //   },
+  //   decrement(num) {
+  //     this.count -= num;
+  //   },
+  //   method1: function (arg) {
+  //     console.log((this.count2 += arg));
+  //   },
+  //   method2: function (arg) {
+  //     console.log((this.count2 -= arg));
+  //   },
+  // },
+  // components: { Navbar, CardSection },
 };
 </script>
 
@@ -45,7 +64,7 @@ export default {
   text-align: center;
   color: #fff;
   /* margin-top: 0px; */
-  background-color: #61a4e7;
+  background-color: #094683;
 }
 .underline {
   text-decoration: underline;

@@ -13,6 +13,8 @@
 </template>
 
 <script>
+// import { log } from "console";
+import cardSection from "./CardSection.vue";
 export default {
   name: "HelloWorld",
   props: {
@@ -21,6 +23,7 @@ export default {
   data() {
     return {
       switchBar: false,
+      count: cardSection.data(),
       items: ["home", "Info", "Galery", "Shop"],
     };
   },
@@ -31,6 +34,7 @@ export default {
       };
     },
   },
+  // components: { CardSection },
 };
 </script>
 
@@ -51,11 +55,13 @@ nav {
 }
 .log {
   display: inline-block;
+  margin-left: 5%;
 }
 .info {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-right: 5%;
 }
 li {
   width: 90px;
@@ -181,5 +187,27 @@ li {
     border-bottom-style: solid;
     text-transform: uppercase;
   }
+}
+.fa-cart-shopping {
+  position: absolute;
+  margin-left: 440px;
+  margin-top: -10px;
+  z-index: 20;
+  color: yellow;
+  font-size: 15px;
+  padding: 6px;
+  color: #000;
+  border-radius: 5px;
+  background-color: #fff;
+  /* z-index: -1; */
+  /* background-color: blue; */
+}
+.fa-cart-shopping::before {
+  position: absolute;
+  margin-top: 12px;
+  right: 5px;
+  font-size: 25px;
+  color: red;
+  transform: rotate(25deg);
 }
 </style>

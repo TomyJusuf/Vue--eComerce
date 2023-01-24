@@ -10,6 +10,7 @@
     <h1>Make trip <br />The Best destination in world.</h1>
     <div class="border-card">
       <div class="card" v-for="card in cards" :key="card">
+        <i class="fa-solid fa-cart-shopping">{{ this.count }}</i>
         <div class="picture-box">
           <img v-bind:src="card.image" class="imagePicture" img />
         </div>
@@ -24,9 +25,12 @@
         </div>
         <h4 class="order">{{ card.start }} - {{ card.end }}</h4>
         <!-- <h3 class="visit">Visit</h3> -->
-        <h3>
-          price: <button>{{ card.price }}e</button>
-        </h3>
+        <div class="price-border">
+          Price:
+          <i class="fa-solid fa-plus" v-on:click="increment(1)"></i>
+          <div class="price">{{ card.price }}e</div>
+          <i class="fa-solid fa-minus" v-on:click="decrement(1)"></i>
+        </div>
       </div>
     </div>
   </div>
@@ -37,6 +41,7 @@ export default {
   name: "CardSection",
   data() {
     return {
+      message: "hallo there",
       cards: [
         {
           nameDestination: "Paris",
@@ -157,7 +162,21 @@ export default {
             "https://lp-cms-production.imgix.net/features/2017/11/GettyRF_543346423-1-ab159824d5bd.jpg",
         },
       ],
+      count: 0,
+      number: this.count,
     };
+  },
+  methods: {
+    increment(num) {
+      this.count += num;
+      console.log(this.count);
+      return this.count;
+    },
+    decrement(num) {
+      this.count = this.count - num;
+      console.log(this.count);
+      return this.count;
+    },
   },
 };
 </script>
@@ -166,7 +185,7 @@ export default {
 .container-card {
   display: flex;
   flex-wrap: wrap;
-  background-color: rgb(171, 219, 221);
+  background-color: rgb(190, 225, 226);
   max-width: 1200px;
   height: 99%;
   margin: 50px auto;
@@ -290,7 +309,14 @@ export default {
 .icons-bar > .fa-solid {
   color: rgb(255, 217, 0);
 }
-.card button {
+.price-border {
+  font-size: 15px;
+}
+.fa-solid {
+  margin: 0 5px;
+  cursor: pointer;
+}
+.price-border > .price {
   display: inline-flex;
   width: 60px;
   height: 20px;
@@ -298,7 +324,7 @@ export default {
   justify-content: center;
   align-self: flex-start;
   border: none;
-  cursor: pointer;
+  /* cursor: pointer; */
   border-radius: 4px;
   color: rgb(26, 21, 21);
   font-size: 15px;
@@ -308,9 +334,31 @@ export default {
 }
 .border-card > .card:hover {
   position: relative;
-  scale: 1.2;
+  /* scale: 1.2; */
   z-index: 10;
   box-shadow: 5px 5px 4px rgb(65, 63, 63);
   top: -5px;
+}
+.fa-cart-shopping {
+  position: absolute;
+  margin-left: 200px;
+  margin-top: 220px;
+  z-index: 20;
+  color: yellow;
+  font-size: 15px;
+  padding: 6px;
+  color: rgb(248, 243, 243);
+  border-radius: 5px;
+  background-color: rgb(17, 16, 16);
+  /* z-index: -1; */
+  /* background-color: blue; */
+}
+.fa-cart-shopping::before {
+  position: absolute;
+  margin-top: 12px;
+  right: 5px;
+  font-size: 25px;
+  color: red;
+  transform: rotate(25deg);
 }
 </style>
