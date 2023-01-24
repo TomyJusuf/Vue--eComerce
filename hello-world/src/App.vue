@@ -1,9 +1,9 @@
 <template>
   <!-- <Navbar />
   <CardSection /> -->
-  <template v-for="name in names" :key="name">
-    <h2 v-if="name === 'Bruce'">{{ name }}</h2>
-  </template>
+  <h2>{{ 2 + 3 + 5 }}</h2>
+  <h2>Add method - {{ add(5, 10, 15) }}</h2>
+  <h2>Multiply method- {{ multiply(baseValue) }}</h2>
 </template>
 
 <script>
@@ -14,28 +14,19 @@ export default {
   data() {
     return {
       names: ["Bruce", "Clark", "Diana"],
-      fullName: [
-        { first: "Bruce", last: "Wayne" },
-        { first: "Clark", last: "Kent" },
-        { first: "Princess", last: "Diana" },
-      ],
-      actors: [
-        {
-          name: "Christian Bale",
-          movies: ["Barman", "The Prestige"],
-        },
-        {
-          name: "Di Caprio",
-          movies: ["Titanic", "Inceprion"],
-        },
-      ],
-      myInfo: {
-        name: "Tomas",
-        channel: "Developer",
-        couse: "Vue 3",
-      },
+      baseMultiplier: 5,
+      baseValue: 2,
     };
   },
+  methods: {
+    add(a, b, c) {
+      return a + b + c;
+    },
+    multiply(num) {
+      return num * this.baseMultiplier;
+    },
+  },
+
   // components: { CardSection, Navbar },
 };
 </script>
