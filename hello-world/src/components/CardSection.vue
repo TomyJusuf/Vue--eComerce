@@ -7,9 +7,8 @@
     referrerpolicy="no-referrer"
   />
   <div class="container-card">
+    <h1>Make trip <br />The Best destination in world.</h1>
     <div class="border-card">
-      <h1>Make trip <br />The Best destination in world.</h1>
-
       <div class="card" v-for="card in cards" :key="card">
         <div class="picture-box">
           <img v-bind:src="card.image" class="imagePicture" img />
@@ -167,10 +166,10 @@ export default {
 .container-card {
   display: flex;
   flex-wrap: wrap;
-  background-color: rgb(255, 255, 255);
-  max-width: 1300px;
+  background-color: rgb(171, 219, 221);
+  max-width: 1200px;
   height: 99%;
-  margin: 150px auto;
+  margin: 50px auto;
   padding: 1px 1px;
   gap: 10px 20px;
   justify-content: center;
@@ -180,11 +179,23 @@ export default {
 .border-card {
   display: flex;
   flex-wrap: wrap;
-  background-color: rgb(238, 238, 238);
-
-  max-width: 1100px;
+  background-repeat: no-repeat;
+  /* background: linear-gradient(#b9b3eb, #070c41); */
+  background: linear-gradient(
+      45deg,
+      rgba(34, 102, 204, 0.8),
+      rgba(233, 133, 133, 0.842) 70.71%
+    ),
+    /* linear-gradient(145deg, rgba(223, 230, 223, 0.8), rgba(0, 255, 0, 0) 70.71%), */
+      linear-gradient(
+        45deg,
+        rgba(4, 5, 59, 0.534),
+        rgba(169, 206, 240, 0.904) 70.71%
+      );
+  border: 15px solid white;
+  max-width: 1110px;
   height: 100%;
-  margin: 15px auto;
+  margin: 15px auto 30px;
   padding: 10px 10px;
   gap: 10px 20px;
   justify-content: center;
@@ -192,18 +203,21 @@ export default {
   border-radius: 15px;
 }
 
-.border-card h1 {
-  max-width: 1080px;
+.container-card h1 {
+  /* max-width: 1280px; */
   font-size: 2.3rem;
   justify-content: center;
   align-self: flex-start;
-  margin-top: 30px;
+  margin-top: 20px;
   position: relative;
   flex-wrap: wrap;
-  width: 100%;
+  width: 600px;
   display: block;
-  margin-bottom: 25px;
-  color: #000;
+  margin-bottom: 10px;
+  color: rgb(32, 26, 26);
+  text-decoration: underline;
+  background-color: rgb(243, 240, 236);
+  border-radius: 15px;
 }
 
 .border-card .card {
@@ -293,8 +307,10 @@ export default {
   background-color: cornflowerblue;
 }
 .border-card > .card:hover {
+  position: relative;
   scale: 1.2;
   z-index: 10;
   box-shadow: 5px 5px 4px rgb(65, 63, 63);
+  top: -5px;
 }
 </style>
