@@ -4,7 +4,7 @@
 
   <div>
     <pre>
-      {{ JSON.stringify(formValues, null, 2) }}
+      {{ JSON.stringify(formValues, null, 5) }}
     </pre>
   </div>
   <form action="">
@@ -23,6 +23,34 @@
         v-model="formValues.profileSummary"
       ></textarea>
     </div>
+
+    <div>
+      <label for="country">Country</label>
+      <select name="" id="country" v-model="formValues.country">
+        <option value="">select country</option>
+        <option value="india">India</option>
+        <option value="China">China</option>
+        <option value="Europa">Europa</option>
+        <option value="Africa">Africa</option>
+        <option value="USA">USA</option>
+      </select>
+    </div>
+
+    <div>
+      <label for="job-location">Job Location</label>
+      <select
+        name=""
+        id="job-location"
+        multiple
+        v-model="formValues.jobLocation"
+      >
+        <option value="india">India</option>
+        <option value="China">China</option>
+        <option value="Europa">Europa</option>
+        <option value="Africa">Africa</option>
+        <option value="USA">USA</option>
+      </select>
+    </div>
   </form>
 </template>
 
@@ -36,6 +64,8 @@ export default {
       formValues: {
         name: "",
         profileSummary: "",
+        country: "",
+        jobLocation: [],
       },
     };
   },
