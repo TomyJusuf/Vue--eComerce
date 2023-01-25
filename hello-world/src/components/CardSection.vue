@@ -18,7 +18,7 @@
         <div :class="toggleBar" class="cardDropdown">
           <ul class="card-dropdown-list">
             <li v-for="product in cardShop" :key="product.id">
-              {{ product.nameDestination }} {{ product.quantity }}
+              {{ product.nameDestination }} : {{ product.quantity }}
             </li>
           </ul>
         </div>
@@ -45,13 +45,13 @@
         <div class="price-border">
           Price:
           <div class="price">{{ card.price }}e</div>
-          <i
-            class="fa-solid fa-minus"
-            v-on:click="updateCard(card, 'subtract')"
-          ></i>
-          <span>{{ card.quantity }}</span>
-          <i class="fa-solid fa-plus" v-on:click="updateCard(card, 'add')"></i>
         </div>
+        <i
+          class="fa-solid fa-minus"
+          v-on:click="updateCard(card, 'subtract')"
+        ></i>
+        <span>{{ card.quantity }}</span>
+        <i class="fa-solid fa-plus" v-on:click="updateCard(card, 'add')"></i>
       </div>
     </div>
   </div>
@@ -383,6 +383,7 @@ export default {
 }
 .price-border {
   font-size: 15px;
+  display: flex;
 }
 .fa-solid {
   margin: 0 5px;
@@ -500,5 +501,6 @@ li {
   display: block;
   color: #000;
   background-color: white;
+  text-decoration: underline;
 }
 </style>
