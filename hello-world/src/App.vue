@@ -1,7 +1,7 @@
 <template>
-  <!-- <Navbar /> -->
-  <!-- <CardSection /> -->
-  <h2>{{ name }}</h2>
+  <Navbar />
+  <CardSection />
+  <!-- <h2>{{ name }}</h2>
   <div>
     <button v-on:mouseover="name = 'Batman'">Change name</button>
   </div>
@@ -15,12 +15,12 @@
     </button>
   </div>
   <div @click="handler1(multiPly)">Hi, click me!</div>
-  <div @click="handler(devide)">Hi, click me!</div>
+  <div @click="handler(devide)">Hi, click me!</div> -->
 </template>
 
 <script>
-// import CardSection from "./components/CardSection.vue";
-// import Navbar from "./components/Navbar.vue";
+import CardSection from "./components/CardSection.vue";
+import Navbar from "./components/Navbar.vue";
 export default {
   name: "App",
   data() {
@@ -46,7 +46,7 @@ export default {
   //     console.log((this.count2 -= arg));
   //   },
   // },
-  // components: { Navbar, CardSection },
+  components: { Navbar, CardSection },
 };
 </script>
 

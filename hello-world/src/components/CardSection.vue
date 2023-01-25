@@ -9,8 +9,24 @@
   <div class="container-card">
     <h1>Make trip <br />The Best destination in world.</h1>
     <div class="border-card">
-      <div class="card" v-for="card in cards" :key="card">
-        <i class="fa-solid fa-cart-shopping">{{ this.count }}</i>
+      <div class="shopIcon">
+        <i
+          v-on:click="showCard = !showCard"
+          class="fa-solid fa-cart-shopping"
+          >{{ totalQuantity }}</i
+        >
+        <div :class="toggleBar" class="cardDropdown">
+          <ul class="card-dropdown-list">
+            <li v-for="product in cardShop" :key="product.id">
+              {{ product.nameDestination }} {{ product.quantity }}
+            </li>
+          </ul>
+        </div>
+        <i class="fa-solid fa-question"></i>
+        <i class="fa-regular fa-envelope"></i>
+        <i class="fa-brands fa-whatsapp"></i>
+      </div>
+      <div class="card" v-for="card in cards" :key="card.id">
         <div class="picture-box">
           <img v-bind:src="card.image" class="imagePicture" img />
         </div>
@@ -23,13 +39,18 @@
           <i class="fa-solid fa-star"></i>
           <i class="fa-solid fa-star"></i>
         </div>
+
         <h4 class="order">{{ card.start }} - {{ card.end }}</h4>
         <!-- <h3 class="visit">Visit</h3> -->
         <div class="price-border">
           Price:
-          <i class="fa-solid fa-plus" v-on:click="increment(1)"></i>
           <div class="price">{{ card.price }}e</div>
-          <i class="fa-solid fa-minus" v-on:click="decrement(1)"></i>
+          <i
+            class="fa-solid fa-minus"
+            v-on:click="updateCard(card, 'subtract')"
+          ></i>
+          <span>{{ card.quantity }}</span>
+          <i class="fa-solid fa-plus" v-on:click="updateCard(card, 'add')"></i>
         </div>
       </div>
     </div>
@@ -41,9 +62,12 @@ export default {
   name: "CardSection",
   data() {
     return {
+      showCard: false,
       message: "hallo there",
       cards: [
         {
+          id: 1,
+          quantity: 0,
           nameDestination: "Paris",
           price: 500,
           picture: "image",
@@ -53,6 +77,8 @@ export default {
             "https://static.independent.co.uk/s3fs-public/thumbnails/image/2020/04/14/17/istock-958597180.jpg?quality=75&width=982&height=726&auto=webp",
         },
         {
+          id: 2,
+          quantity: 0,
           nameDestination: "New Zealand",
           price: 600,
           picture: "image",
@@ -62,6 +88,8 @@ export default {
             "https://www.twowanderingsoles.com/wp-content/uploads/2021/07/img_60ee7d07ab465.jpg",
         },
         {
+          id: 3,
+          quantity: 0,
           nameDestination: "Maui",
           price: 900,
           picture: "image",
@@ -71,8 +99,11 @@ export default {
             "https://www.travelandleisure.com/thmb/Zc6w093C6a7OlsANt7aOeqAjXTU=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/maui-hawaii-MAUITG0221-50725a14980e4a3382eab85f50339099.jpg",
         },
         {
+          id: 4,
           nameDestination: "Bora Bora",
           price: 1500,
+          quantity: 0,
+
           picture: "image",
           start: "Fr, 10.may",
           end: "Di, 14.may",
@@ -80,8 +111,10 @@ export default {
             "https://media.triseptsolutions.com/sites/vaxwebuav/PublishingImages/UV_destinations/dest_BOB_thumb2.jpg",
         },
         {
+          id: 5,
           nameDestination: "Tahiti",
           price: 3500,
+          quantity: 0,
           picture: "image",
           start: "Fr, 10.may",
           end: "Di, 14.may",
@@ -89,8 +122,11 @@ export default {
             "https://pictures.tripmasters.com/images/packages1/french_polynesia/frenchpolynesia-tahiti-bungalow500.jpg",
         },
         {
+          id: 6,
           nameDestination: "London",
           price: 2500,
+          quantity: 0,
+
           picture: "image",
           start: "Fr, 10.may",
           end: "Di, 14.may",
@@ -98,8 +134,11 @@ export default {
             "https://image.urlaubspiraten.de/720/image/upload/v1603987364/mediavault_images/big_ben_london_city_trip_lk35rm.png",
         },
         {
+          id: 7,
           nameDestination: "Holand",
           price: 1500,
+          quantity: 0,
+
           picture: "image",
           start: "Fr, 10.may",
           end: "Di, 14.may",
@@ -107,8 +146,11 @@ export default {
             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-Isn9Tpp7lGdr7XG6IOhlGW__MNDK0-n-iA&usqp=CAU",
         },
         {
+          id: 8,
           nameDestination: "Kanada",
           price: 3500,
+          quantity: 0,
+
           picture: "image",
           start: "Fr, 10.may",
           end: "Di, 14.may",
@@ -116,8 +158,11 @@ export default {
             "https://res.cloudinary.com/worldpackers/image/upload/c_fill,f_auto,q_auto,w_1024/v1/guides/article_cover/vae4vwglxryqdd1owwth",
         },
         {
+          id: 9,
           nameDestination: "USA",
           price: 2500,
+          quantity: 0,
+
           picture: "image",
           start: "Fr, 10.may",
           end: "Di, 14.may",
@@ -125,8 +170,11 @@ export default {
             "https://i2-prod.mirror.co.uk/incoming/article23789788.ece/ALTERNATES/n615/1_Young-lady-visiting-Statue-of-Liberty-in-New-York.jpg",
         },
         {
+          id: 10,
           nameDestination: "Swizerland",
           price: 2500,
+          quantity: 0,
+
           picture: "image",
           start: "Fr, 10.may",
           end: "Di, 14.may",
@@ -135,8 +183,11 @@ export default {
         },
 
         {
+          id: 11,
           nameDestination: "Austria",
           price: 1500,
+          quantity: 0,
+
           picture: "image",
           start: "Fr, 10.may",
           end: "Di, 14.may",
@@ -144,8 +195,11 @@ export default {
             "https://travelpassionate.com/wp-content/uploads/2019/04/Scenic-view-of-famous-Hallstatt-village-in-the-Austrian-Alps.-Image-min.jpg",
         },
         {
+          id: 12,
           nameDestination: "Czech Republic",
           price: 3500,
+          quantity: 0,
+
           picture: "image",
           start: "Fr, 10.may",
           end: "Di, 14.may",
@@ -153,8 +207,11 @@ export default {
             "https://media.wired.co.uk/photos/606db186a329c00890ec0888/master/w_1600%2Cc_limit/czech-republic-prague.jpg",
         },
         {
+          id: 13,
           nameDestination: "Italia",
           price: 2500,
+          quantity: 0,
+
           picture: "image",
           start: "Fr, 10.may",
           end: "Di, 14.may",
@@ -162,20 +219,35 @@ export default {
             "https://lp-cms-production.imgix.net/features/2017/11/GettyRF_543346423-1-ab159824d5bd.jpg",
         },
       ],
-      count: 0,
-      number: this.count,
     };
   },
-  methods: {
-    increment(num) {
-      this.count += num;
-      console.log(this.count);
-      return this.count;
+  computed: {
+    cardShop() {
+      return this.cards.filter((card) => card.quantity > 0);
     },
-    decrement(num) {
-      this.count = this.count - num;
-      console.log(this.count);
-      return this.count;
+    totalQuantity() {
+      return this.cards.reduce((total, card) => total + card.quantity, 0);
+    },
+    toggleBar() {
+      return {
+        close: this.showCard,
+      };
+    },
+  },
+  methods: {
+    updateCard(card, updateType) {
+      for (let i = 0; i < this.cards.length; i++) {
+        if (this.cards[i].id === card.id) {
+          if (updateType === "subtract") {
+            if (this.cards[i].quantity !== 0) {
+              this.cards[i].quantity--;
+            }
+          } else {
+            this.cards[i].quantity++;
+          }
+          break;
+        }
+      }
     },
   },
 };
@@ -192,7 +264,7 @@ export default {
   padding: 1px 1px;
   gap: 10px 20px;
   justify-content: center;
-  border-radius: 15px;
+  border-radius: 3px;
   /* border: 10px solid red; */
 }
 .border-card {
@@ -211,7 +283,7 @@ export default {
         rgba(4, 5, 59, 0.534),
         rgba(169, 206, 240, 0.904) 70.71%
       );
-  border: 15px solid white;
+  border: 5px solid white;
   max-width: 1110px;
   height: 100%;
   margin: 15px auto 30px;
@@ -227,7 +299,7 @@ export default {
   font-size: 2.3rem;
   justify-content: center;
   align-self: flex-start;
-  margin-top: 20px;
+  margin-top: 0px;
   position: relative;
   flex-wrap: wrap;
   width: 600px;
@@ -236,7 +308,7 @@ export default {
   color: rgb(32, 26, 26);
   text-decoration: underline;
   background-color: rgb(243, 240, 236);
-  border-radius: 15px;
+  border-radius: 0px;
 }
 
 .border-card .card {
@@ -337,28 +409,96 @@ export default {
   /* scale: 1.2; */
   z-index: 10;
   box-shadow: 5px 5px 4px rgb(65, 63, 63);
-  top: -5px;
+  /* top: -5px; */
+}
+.shopIcon {
+  position: fixed;
+  width: 40px;
+  height: 150px;
+  background-color: rgb(11, 83, 131);
+  right: 0px;
+  margin-top: 10px;
+  border-radius: 15px 0 0px 15px;
+  z-index: 100;
+  border: 2px solid whitesmoke;
 }
 .fa-cart-shopping {
   position: absolute;
-  margin-left: 200px;
-  margin-top: 220px;
-  z-index: 20;
+  right: 5px;
+  height: 25px;
+  width: 25px;
+  margin-top: -35px;
   color: yellow;
-  font-size: 15px;
+  font-size: 11px;
   padding: 6px;
   color: rgb(248, 243, 243);
-  border-radius: 5px;
-  background-color: rgb(17, 16, 16);
-  /* z-index: -1; */
-  /* background-color: blue; */
+  border-radius: 50px;
+  background-color: rgb(21, 141, 197);
 }
 .fa-cart-shopping::before {
   position: absolute;
-  margin-top: 12px;
+  margin-top: 15px;
   right: 5px;
   font-size: 25px;
-  color: red;
+  color: rgb(248, 3, 3);
   transform: rotate(25deg);
+}
+.fa-question {
+  position: relative;
+  margin-top: 20px;
+  /* background-color: #fff; */
+  /* color: rgb(21, 141, 197); */
+  color: #fff;
+  width: 25px;
+  height: 29px;
+  padding: 4px;
+  border-radius: 5px;
+  font-size: 20px;
+}
+.fa-envelope {
+  position: relative;
+  margin-top: 10px;
+  color: #fff;
+  width: 25px;
+  height: 29px;
+  padding: 4px;
+  border-radius: 5px;
+  font-size: 20px;
+}
+.fa-whatsapp {
+  position: relative;
+  margin-top: 10px;
+  color: #fff;
+  width: 25px;
+  height: 29px;
+  padding: 4px;
+  border-radius: 5px;
+  font-size: 20px;
+}
+.fa-minus,
+.fa-plus {
+  background-color: aquamarine;
+  padding: 3px;
+  border-radius: 5px;
+}
+.close {
+  display: none;
+}
+.cardDropdown {
+  position: absolute;
+  width: 150px;
+  height: 100%;
+  background-color: white;
+  right: 50px;
+  border-radius: 10px;
+}
+ul {
+  list-style-type: none;
+  height: 100%;
+}
+li {
+  display: block;
+  color: #000;
+  background-color: white;
 }
 </style>
