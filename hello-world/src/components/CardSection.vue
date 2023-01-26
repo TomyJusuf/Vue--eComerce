@@ -9,17 +9,16 @@
   <div class="container-card">
     <h1>Make trip <br />The Best destination in world.</h1>
     <div class="border-card">
-      <div class="shopIcon">
-        <i
-          v-on:click="showCard = !showCard"
-          class="fa-solid fa-cart-shopping"
-          >{{ totalQuantity }}</i
-        >
+      <div class="shopIcon" v-on:click="showCard = !showCard">
+        <i class="fa-solid fa-cart-shopping">{{ totalQuantity }}</i>
         <div :class="toggleBar" class="cardDropdown">
           <ul class="card-dropdown-list">
             <li v-for="product in cardShop" :key="product.id">
-              {{ product.nameDestination }} : {{ product.quantity }}
+              <h4>{{ product.nameDestination }}:</h4>
+              <h4>{{ product.quantity }}</h4>
             </li>
+
+            <h3>Total:</h3>
           </ul>
         </div>
         <i class="fa-solid fa-question"></i>
@@ -424,22 +423,26 @@ export default {
   border: 2px solid whitesmoke;
 }
 .fa-cart-shopping {
+  display: flex;
+  justify-self: center;
   position: absolute;
-  right: 5px;
+  right: 25px;
   height: 25px;
-  width: 25px;
-  margin-top: -35px;
+  width: 35px;
+  margin-top: -25px;
+  z-index: 3;
   color: yellow;
   font-size: 11px;
-  padding: 6px;
+  padding: 10px 15px;
   color: rgb(248, 243, 243);
-  border-radius: 50px;
+  border-radius: 5px;
   background-color: rgb(21, 141, 197);
+  text-align: center;
 }
 .fa-cart-shopping::before {
   position: absolute;
-  margin-top: 15px;
-  right: 5px;
+  margin-top: 9px;
+  right: 25px;
   font-size: 25px;
   color: rgb(248, 3, 3);
   transform: rotate(25deg);
@@ -447,18 +450,19 @@ export default {
 .fa-question {
   position: relative;
   margin-top: 20px;
-  /* background-color: #fff; */
-  /* color: rgb(21, 141, 197); */
   color: #fff;
   width: 25px;
   height: 29px;
   padding: 4px;
   border-radius: 5px;
   font-size: 20px;
+  margin-left: 10px;
 }
 .fa-envelope {
   position: relative;
   margin-top: 10px;
+  margin-left: 5px;
+
   color: #fff;
   width: 25px;
   height: 29px;
@@ -469,6 +473,8 @@ export default {
 .fa-whatsapp {
   position: relative;
   margin-top: 10px;
+  margin-left: 5px;
+
   color: #fff;
   width: 25px;
   height: 29px;
@@ -482,25 +488,46 @@ export default {
   padding: 3px;
   border-radius: 5px;
 }
+.cardDropdown {
+  position: absolute;
+  display: block;
+  width: 200px;
+
+  right: 50px;
+  border-radius: 10px;
+  justify-content: space-around;
+  /* display: none; */
+}
 .close {
   display: none;
 }
-.cardDropdown {
-  position: absolute;
-  width: 150px;
-  height: 100%;
-  background-color: white;
-  right: 50px;
-  border-radius: 10px;
-}
 ul {
+  position: relative;
   list-style-type: none;
-  height: 100%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: rgb(77, 126, 231);
+  color: black;
+  border-radius: 0 6px 15px;
+  border: 3px solid white;
 }
 li {
-  display: block;
+  position: relative;
+  width: 100%;
   color: #000;
-  background-color: white;
   text-decoration: underline;
+  margin: 5px 15px;
+  display: flex;
+  justify-content: space-between;
+}
+h4 {
+  color: #000;
+}
+h3 {
+  width: 100px;
+  margin: 5px 15px;
+  align-self: flex-end;
 }
 </style>

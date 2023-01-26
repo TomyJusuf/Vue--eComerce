@@ -1,164 +1,70 @@
 <template>
-  <!-- <Navbar /> -->
-  <!-- <CardSection /> -->
+  <Navbar />
+  <CardSection />
   <!-- <Formular /> -->
 
-  <pre>
-      {{ JSON.stringify(formValues, null, 5) }}
-    </pre
-  >
-
-  <form action="" @submit.prevent="submitForm">
-    <div>
-      <label for="name">Name</label>
-      <input type="text" id="name" v-model.trim.lazy="formValues.name" />
-    </div>
-
-    <div>
-      <label for="profile">Profile Summary</label>
-      <textarea
-        name=""
-        id="profile"
-        cols="30"
-        rows="10"
-        v-model="formValues.profileSummary"
-      ></textarea>
-    </div>
-
-    <div>
-      <label class="country-label" for="country">Country</label>
-      <select name="" id="country" v-model="formValues.country">
-        <option value="">select country</option>
-        <option value="india">India</option>
-        <option value="China">China</option>
-        <option value="Europa">Europa</option>
-        <option value="Africa">Africa</option>
-        <option value="USA">USA</option>
-      </select>
-    </div>
-
-    <div>
-      <label for="job-location">Job Location</label>
-      <select
-        name=""
-        id="job-location"
-        multiple
-        v-model="formValues.jobLocation"
-      >
-        <option value="india">India</option>
-        <option value="China">China</option>
-        <option value="Europa">Europa</option>
-        <option value="Africa">Africa</option>
-        <option value="USA">USA</option>
-      </select>
-    </div>
-
-    <div class="question">
-      <label for="remoteWork">Open to remote work?</label>
-      <input
-        type="checkbox"
-        id="remoteWork"
-        v-model="formValues.remoteWork"
-        true-value="yes"
-        false-value="no"
-      />
-    </div>
-    <div class="question">
-      <label for="">Skill set :</label>
-      <input
-        type="checkbox"
-        id="html"
-        value="html"
-        v-model="formValues.skillSet"
-      />
-      <label for="html">HTML</label>
-      <input
-        type="checkbox"
-        id="css"
-        value="css"
-        v-model="formValues.skillSet"
-      />
-      <label for="css">CSS</label>
-      <input
-        type="checkbox"
-        id="javascript"
-        value="javascript"
-        v-model="formValues.skillSet"
-      />
-      <label for="javascript">JavaScript</label>
-    </div>
-
-    <div class="question">
-      <label for="">Years of Experience :</label>
-      <input
-        type="radio"
-        id="0-2"
-        value="0-2"
-        v-model="formValues.yearOfExperience"
-      />
-      <label for="html">0-2</label>
-      <input
-        type="radio"
-        id="3-5"
-        value="3-5"
-        v-model="formValues.yearOfExperience"
-      />
-      <label for="css">3-5</label>
-      <input
-        type="radio"
-        id="6-10"
-        value="6-10"
-        v-model="formValues.yearOfExperience"
-      />
-      <label for="javascript">6-10</label>
-    </div>
-    <div>
-      <label for="age">Age</label>
-      <input
-        @keyup.enter="submitForm"
-        type="number"
-        id="age"
-        v-model.number="formValues.age"
-      />
-    </div>
-
-    <!-- <div>
-      <button>Submit</button>
-    </div> -->
-  </form>
+  <!-- <h2>fullname- {{ firstName }} {{ lastName }}</h2>
+  <h2>Computed fullname {{ fullName }}</h2>
+  <h2>
+    Total -
+    {{ items.reduce((total, current) => (total = total + current.price), 0) }}
+  </h2>
+  <h2>Computed total - {{ total }}</h2> -->
 </template>
 
 <script>
-// import CardSection from "./components/CardSection.vue";
-// import Navbar from "./components/Navbar.vue";
+import CardSection from "./components/CardSection.vue";
+import Navbar from "./components/Navbar.vue";
 // import Formular from "./components/Formular.vue";
 export default {
   name: "App",
   data() {
     return {
-      formValues: {
-        name: "",
-        profileSummary: "",
-        country: "",
-        jobLocation: [],
-        remoteWork: "no",
-        skillSet: [],
-        yearOfExperience: "",
-        age: null,
-      },
+      firstName: "Bruse",
+      lastName: "Wayne",
+      items: [
+        {
+          id: 1,
+          title: "TV",
+          price: 100,
+        },
+        {
+          id: 2,
+          title: "Phone",
+          price: 200,
+        },
+        {
+          id: 3,
+          title: "Laptop",
+          price: 300,
+        },
+      ],
     };
   },
-  methods: {
-    submitForm() {
-      console.log("form values", this.formValues);
+  methods: {},
+  computed: {
+    fullName() {
+      return ` ${this.firstName} ${this.lastName}`;
+    },
+    total() {
+      return this.items.reduce(
+        (total, current) => (total = total + current.price),
+        0
+      );
     },
   },
-  // components: { Formular },
+
+  components: { Navbar, CardSection },
 };
 </script>
 
 <style>
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
 
 #app {
   font-family: "Poppins", sans-serif;
@@ -168,7 +74,7 @@ export default {
   color: rgb(41, 36, 36);
   /* margin-top: 0px; */
 }
-form {
+/* form {
   display: flex;
   flex-wrap: wrap;
   height: 700px;
@@ -178,29 +84,28 @@ form {
   background-color: cornflowerblue;
   justify-content: center;
   border-radius: 15px;
-}
-label {
+} */
+/* label {
   font-weight: bold;
   display: flex;
   margin-bottom: 1px;
   margin-top: 7px;
-}
-#country,
+} */
+/* #country,
 #job-location {
   width: 420px;
-}
-input + label {
+} */
+/* input + label {
   font-weight: bold;
   display: inline-flex;
-  /* margin-right: 20px; */
-}
+} */
 
-.question {
+/* .question {
   display: flex;
   width: 100%;
   margin-left: 25px;
-}
-input[type="text"],
+} */
+/* input[type="text"],
 textarea,
 select {
   display: block;
@@ -212,8 +117,8 @@ select {
   color: #555;
   background-color: #fff;
   border-image: none;
-}
-button {
+} */
+/* button {
   background-color: rgb(87, 172, 8);
   padding: 10px 20px;
   font-size: 20px;
@@ -224,4 +129,7 @@ button {
   cursor: pointer;
   box-shadow: 4px -1px 5px rgb(66, 54, 54);
 }
+button:active {
+  scale: 0.9;
+} */
 </style>
