@@ -1,20 +1,19 @@
 <template>
-  <Navbar />
-  <CardSection />
+  <!-- <Navbar /> -->
+  <!-- <CardSection /> -->
   <!-- <Formular /> -->
 
-  <!-- <h2>fullname- {{ firstName }} {{ lastName }}</h2>
+  <h2>fullname- {{ firstName }} {{ lastName }}</h2>
   <h2>Computed fullname {{ fullName }}</h2>
-  <h2>
-    Total -
-    {{ items.reduce((total, current) => (total = total + current.price), 0) }}
-  </h2>
-  <h2>Computed total - {{ total }}</h2> -->
+  <button @click="items.push({ id: 4, title: 'Keyboard', price: 50 })">
+    Add item
+  </button>
+  <h2>Computed total - {{ total }}</h2>
 </template>
 
 <script>
-import CardSection from "./components/CardSection.vue";
-import Navbar from "./components/Navbar.vue";
+// import CardSection from "./components/CardSection.vue";
+// import Navbar from "./components/Navbar.vue";
 // import Formular from "./components/Formular.vue";
 export default {
   name: "App",
@@ -54,7 +53,7 @@ export default {
     },
   },
 
-  components: { Navbar, CardSection },
+  // components: { Navbar, CardSection },
 };
 </script>
 
