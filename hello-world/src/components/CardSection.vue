@@ -13,12 +13,18 @@
         <i class="fa-solid fa-cart-shopping">{{ totalQuantity }}</i>
         <div :class="toggleBar" class="cardDropdown">
           <ul class="card-dropdown-list">
+            <div class="title-bar">
+              <h4>Name</h4>
+              <h4>Price</h4>
+            </div>
             <li v-for="product in cardShop" :key="product.id">
               <h4>{{ product.nameDestination }}:</h4>
-              <h4>{{ product.quantity }}</h4>
+              <h4>{{ product.quantity }}x {{ product.price }} &#8364;</h4>
             </li>
-
-            <h3>Total:</h3>
+            <div class="totalPrice">
+              <h3 class="total-text">Total:</h3>
+              <h3 class="total-price-value">{{ totalPrice }} &#8364;</h3>
+            </div>
           </ul>
         </div>
         <i class="fa-solid fa-question"></i>
@@ -222,11 +228,26 @@ export default {
   },
   computed: {
     cardShop() {
-      return this.cards.filter((card) => card.quantity > 0);
+      let tt = this.cards.filter((card) => card.quantity > 0);
+
+      return tt;
     },
+
     totalQuantity() {
-      return this.cards.reduce((total, card) => total + card.quantity, 0);
+      let priceValue = this.cards.reduce(
+        (total, card) => total + card.quantity,
+        0
+      );
+      return priceValue;
     },
+    totalPrice() {
+      let priceValue = this.cards.reduce(
+        (total, card) => total + card.price * card.quantity,
+        0
+      );
+      return priceValue;
+    },
+
     toggleBar() {
       return {
         close: this.showCard,
@@ -490,13 +511,18 @@ export default {
 }
 .cardDropdown {
   position: absolute;
-  display: block;
+  display: flex;
   width: 200px;
 
+  width: 400px;
   right: 50px;
   border-radius: 10px;
   justify-content: space-around;
   /* display: none; */
+}
+.card-dropdown-list {
+  display: flex;
+  justify-content: space-around;
 }
 .close {
   display: none;
@@ -508,10 +534,11 @@ ul {
   margin-bottom: 10px;
   display: flex;
   flex-wrap: wrap;
-  background-color: rgb(77, 126, 231);
+  background-color: rgba(150, 234, 245, 0.918);
   color: black;
   border-radius: 0 6px 15px;
-  border: 3px solid white;
+  border: 4px solid rgb(224, 222, 215);
+  box-shadow: 7px 5px 3px black;
 }
 li {
   position: relative;
@@ -522,12 +549,31 @@ li {
   display: flex;
   justify-content: space-between;
 }
-h4 {
+.title-bar {
+  width: 365px;
   color: #000;
+  display: flex;
+  justify-content: space-between;
 }
-h3 {
-  width: 100px;
-  margin: 5px 15px;
+.title-bar > h4 {
+  display: inline-flex;
+  width: 65px;
+  margin-top: 5px;
+  font-size: 25px;
+}
+.totalPrice {
+  display: flex;
+  justify-content: space-between;
+  width: 360px;
+  align-items: center;
+}
+.total-text {
+  width: 150px;
+  margin: 5px 0px;
   align-self: flex-end;
+  /* background-color: rgb(247, 236, 236); */
+}
+.total-price-value {
+  margin-right: 0px;
 }
 </style>
