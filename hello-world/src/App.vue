@@ -4,7 +4,9 @@
   <!-- <Formular /> -->
 
   <h2>fullname- {{ firstName }} {{ lastName }}</h2>
-  <h2>Computed fullname {{ fullName }}</h2>
+  <h2>Computed fullname- {{ fullName }}</h2>
+  <button @click="changeFullName">Change fullName</button>
+
   <button @click="items.push({ id: 4, title: 'Keyboard', price: 50 })">
     Add item
   </button>
@@ -57,10 +59,21 @@ export default {
         0
       );
     },
+    changeFullName() {
+      this.fullName = "Clark Kent 30";
+    },
   },
   computed: {
-    fullName() {
-      return ` ${this.firstName} ${this.lastName}`;
+    fullName: {
+      get() {
+        return `${this.age} ${this.firstName} ${this.lastName} `;
+      },
+      set(value) {
+        const name = value.split(" ");
+        this.firstName = name[0];
+        this.lastName = name[1];
+        this.age = name[2];
+      },
     },
     total() {
       return this.items.reduce(
