@@ -6,111 +6,118 @@
   </div>
   <div class="formular">
     <form action="" @submit="submitForm">
-      <div>
-        <label for="name">Name</label>
-        <input type="text" id="name" v-model="formValues.name" />
+      <h2>Travel Information</h2>
+      <div class="form-name">
+        <label class="firstName" for="firstName">First Name: </label>
+        <input type="text" name="firstName" id="firstName" required />
+        <label for="lastName">Last Name: </label>
+        <input type="text" name="lastName" id="lastName" required />
+        <label for="date">Date</label>
+        <input type="date" id="date" name="date" />
       </div>
 
-      <div>
-        <label for="profile">Profile Summary</label>
-        <textarea
-          name=""
-          id="profile"
-          cols="30"
-          rows="10"
-          v-model="formValues.profileSummary"
-        ></textarea>
+      <div class="form-example">
+        <label class="email" for="email">E-mail </label>
+        <input type="text" name="email" id="email" required />
+        <label class="phoneNumber" for="phoneNumber">Phone Number </label>
+        <input type="text" name="phoneNumber" id="phoneNumber" required />
       </div>
 
-      <div>
-        <label class="country-label" for="country">Country</label>
-        <select name="" id="country" v-model="formValues.country">
-          <option value="">select country</option>
-          <option value="india">India</option>
-          <option value="China">China</option>
-          <option value="Europa">Europa</option>
-          <option value="Africa">Africa</option>
-          <option value="USA">USA</option>
+      <div class="form-adrese">
+        <label class="adress" for="adress">Address 1</label>
+        <input type="text" name="address" id="address" required />
+      </div>
+
+      <div class="form-adrese">
+        <label class="adress-2" for="adress">Address 2</label>
+        <input type="text" name="address" id="address" required />
+      </div>
+
+      <div class="form-city">
+        <label class="city" for="city">City</label>
+        <input type="text" name="city" id="city" required />
+
+        <label for="state" class="state">State / Province</label>
+        <input type="text" name="state" id="state" required />
+        <label for="country" class="country">Country</label>
+        <select name="country" id="country">
+          <option value="volvo">Paris</option>
+          <option value="volvo">New zeland</option>
+          <option value="volvo">Maui</option>
+          <option value="volvo">Bora Bora</option>
+          <option value="volvo">Tahity</option>
+          <option value="volvo">London</option>
+          <option value="volvo">Holand</option>
+          <option value="volvo">Kanada</option>
+          <option value="volvo">USA</option>
+          <option value="volvo">Swizerland</option>
+          <option value="volvo">Austria</option>
+          <option value="volvo">Czech Republic</option>
+          <option value="volvo">Italia</option>
         </select>
+        <label for="zipCode" class="zipCode">Postal / Zip Code</label>
+        <input type="text" name="zipCode" id="zipCode" required />
       </div>
+      <hr style="margin: 35px 0" />
 
-      <div>
-        <label for="job-location">Job Location</label>
-        <select
-          name=""
-          id="job-location"
-          multiple
-          v-model="formValues.jobLocation"
-        >
-          <option value="india">India</option>
-          <option value="China">China</option>
-          <option value="Europa">Europa</option>
-          <option value="Africa">Africa</option>
-          <option value="USA">USA</option>
-        </select>
+      <h2>Travel Details</h2>
+      <div class="travelDetails">
+        <label for="dateDetail">Travel Date</label>
+        <input type="date" id="dateDetail" name="date" />
       </div>
+      <div class="destination">
+        <label for="destination">Destination</label>
+        <input type="text" id="destination" name="destination" />
+      </div>
+      <hr style="margin: 35px 0" />
 
-      <div class="question">
-        <label for="remoteWork">Open to remote work?</label>
-        <input
-          type="checkbox"
-          id="remoteWork"
-          v-model="formValues.remoteWork"
-          true-value="yes"
-          false-value="no"
-        />
-      </div>
-      <div class="question">
-        <label for="">Skill set :</label>
-        <input
-          type="checkbox"
-          id="html"
-          value="html"
-          v-model="formValues.skillSet"
-        />
-        <label for="html">HTML</label>
-        <input
-          type="checkbox"
-          id="css"
-          value="css"
-          v-model="formValues.skillSet"
-        />
-        <label for="css">CSS</label>
-        <input
-          type="checkbox"
-          id="javascript"
-          value="javascript"
-          v-model="formValues.skillSet"
-        />
-        <label for="javascript">JavaScript</label>
-      </div>
-
-      <div class="question">
-        <label for="">Years of Experience :</label>
+      <h2>Type of Trip</h2>
+      <div class="type-of-trip">
+        <label for="honeymoon">Honeymoon</label>
+        <input type="radio" id="honeymoon" name="honeymoon" value="honeymoon" />
+        <label for="business">Business</label>
+        <input type="radio" id="business" name="business" value="business" />
+        <label for="familyVocation">Family Volation</label>
         <input
           type="radio"
-          id="0-2"
-          value="0-2"
-          v-model="formValues.yearOfExperience"
+          id="familyVocation"
+          name="familyVocation"
+          value="familyVocation"
         />
-        <label for="html">0-2</label>
-        <input
-          type="radio"
-          id="3-5"
-          value="3-5"
-          v-model="formValues.yearOfExperience"
-        />
-        <label for="css">3-5</label>
-        <input
-          type="radio"
-          id="6-10"
-          value="6-10"
-          v-model="formValues.yearOfExperience"
-        />
-        <label for="javascript">6-10</label>
+        <label for="other">Other</label>
+        <input type="radio" id="other" name="other" value="other" />
       </div>
-
-      <div><button>Submit</button></div>
+      <h2>Other Services Needed</h2>
+      <div class="type-of-trip">
+        <label for="Flights">Flights Only</label>
+        <input type="radio" id="Flights" name="Flights" value="Flights" />
+        <label for="rental-car">Rental Car</label>
+        <input
+          type="radio"
+          id="rental-car"
+          name="rental-car"
+          value="rental-car"
+        />
+        <label for="entertainment">entertainment</label>
+        <input
+          type="radio"
+          id="entertainment"
+          name="entertainment"
+          value="entertainment"
+        />
+        <label for="Hotel">Hotel / Resorts</label>
+        <input type="radio" id="Hotel" name="Hotel" value="Hotel" />
+      </div>
+      <hr style="margin: 35px 0" />
+      <h2>Credit Card</h2>
+      <div class="travelDetails">
+        <input
+          type="text"
+          id="creaditCard"
+          name="firstNameCard"
+          placeholder="Enter card number"
+        />
+      </div>
     </form>
   </div>
 </template>
@@ -121,13 +128,16 @@ export default {
   data() {
     return {
       formValues: {
-        name: "",
-        profileSummary: "",
-        country: "",
-        jobLocation: [],
-        remoteWork: "no",
-        skillSet: [],
-        yearOfExperience: "",
+        firstNname: "",
+        lastName: "",
+        date: "",
+        eMail: "",
+        phoneNumber: "",
+        adreseStreet: "",
+        city: "",
+        state: "",
+        zipCode: "",
+        country: [],
       },
     };
   },
@@ -142,65 +152,106 @@ export default {
 
 <style scoped>
 .formular {
-  width: 100%;
+  width: 800px;
   display: flex;
   margin: 0 auto;
-  background-color: red;
+  background-color: rgb(240, 232, 232);
 }
 form {
-  display: flex;
-  flex-wrap: wrap;
-  height: 700px;
-
-  width: 460px;
-  margin: 50px auto;
-  background-color: cornflowerblue;
-  justify-content: center;
-  border-radius: 15px;
+  width: 750px;
+  margin: 10px auto;
 }
-label {
-  font-weight: bold;
-  display: flex;
-  margin-bottom: 1px;
-  margin-top: 7px;
-}
-#country,
-#job-location {
-  width: 420px;
-}
-input + label {
-  font-weight: bold;
-  display: inline-flex;
-  /* margin-right: 20px; */
+label + input {
+  margin: 0 20px;
 }
 
-.question {
-  display: flex;
-  width: 100%;
-  margin-left: 25px;
-}
-input[type="text"],
-textarea,
-select {
-  display: block;
-  width: 400px;
-  padding: 6px 12px;
-  margin: 0 auto;
-  font-size: 14px;
-  line-height: 1.428;
-  color: #555;
+.form-name,
+.form-example,
+.form-adrese,
+.form-city,
+.travelDetails,
+.destination {
   background-color: #fff;
-  border-image: none;
+  margin: 15px 0;
 }
-button {
-  background-color: rgb(87, 172, 8);
-  padding: 10px 20px;
-  font-size: 20px;
-  font-weight: bold;
-  border: 3px rgb(238, 220, 220) solid;
-  border-radius: 15px;
-  color: rgb(240, 248, 248);
-  cursor: pointer;
-  box-shadow: 4px -1px 5px rgb(66, 54, 54);
+#firstName,
+#lastName {
+  width: 110px;
+  height: 30px;
+}
+#date {
+  margin-left: 25px;
+  width: 170px;
+}
+.firstName {
+  margin-right: 2px;
+}
+#email,
+#phoneNumber,
+#address,
+#city,
+#state,
+#zipCode,
+#country,
+#dateDetail,
+#destination {
+  height: 30px;
+}
+.form-name > label:nth-of-type(3) {
+  margin-left: 0px;
+}
+
+.email {
+  margin-right: 40px;
+}
+.phoneNumber {
+  margin-left: 100px;
+  margin-right: 15px;
+}
+#phoneNumber {
+  margin-left: 1px;
+}
+.adress {
+  margin-right: 21px;
+}
+.adress-2 {
+  margin-right: 18px;
+}
+#address {
+  width: 610px;
+}
+#date {
+  width: 180px;
+  height: 30px;
+}
+
+.form-city > #state {
+  width: 250px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+.state {
+  margin-left: 105px;
+}
+.zipCode {
+  margin-left: 168px;
+}
+#zipCode {
+  width: 170px;
+}
+
+.city {
+  margin-right: 65px;
+}
+#country {
+  margin-left: 52px;
+}
+.form-city #city,
+.form-city #state {
+  width: 170px;
+}
+#creaditCard {
+  width: 110px;
+  height: 30px;
 }
 </style>

@@ -67,7 +67,7 @@ export default {
   name: "CardSection",
   data() {
     return {
-      showCard: false,
+      showCard: true,
       message: "hallo there",
       cards: [
         {
