@@ -1,9 +1,38 @@
 <template>
-  <div>
+  <!-- <div>
     <pre>
       {{ JSON.stringify(formValues, null, 5) }}
     </pre>
+  </div> -->
+
+  <div class="fillTemplate">
+    <ul>
+      <li>First name:{{ formValues.firstName }}</li>
+      <li>Last name:{{ formValues.lastName }}</li>
+      <li>Birthdate:{{ formValues.date }}</li>
+      <li>E-mail:{{ formValues.eMail }}</li>
+      <li>Phone number:{{ formValues.phoneNumber }}</li>
+      <li>Adresse 1:{{ formValues.adreseStreet1 }}</li>
+      <li>Adresse 2:{{ formValues.adreseStreet2 }}</li>
+      <li>City:{{ formValues.city }}</li>
+      <li>State:{{ formValues.state }}</li>
+      <li>Country:{{ formValues.country }}</li>
+      <li>Zip code:{{ formValues.zipCode }}</li>
+      <li>Date of travel:{{ formValues.travelDate }}</li>
+      <li>Destination:{{ formValues.destination }}</li>
+      <li>During of trip:{{ formValues.duringTrip }}</li>
+      <li>Type of trip:{{ formValues.typeOfTrip }}</li>
+      <li>Fligh only:{{ formValues.flightOnly }}</li>
+      <li>Rent card:{{ formValues.rentalCar }}</li>
+      <li>Entertainmet: {{ formValues.entertainment }}</li>
+      <li>Hotel:{{ formValues.hotel }}</li>
+      <li>Name of card:{{ formValues.cardName }}</li>
+      <li>Card number:{{ formValues.cardNumber }}</li>
+      <li>Card expire:{{ formValues.cardExpire }}</li>
+      <li>Card secure:{{ formValues.cardSecure }}</li>
+    </ul>
   </div>
+
   <div class="formular">
     <form action="" @submit="submitForm">
       <h2>Travel Information</h2>
@@ -485,7 +514,7 @@
             id="expiration"
             name="expiration"
             placeholder="expiration"
-            v-model="formValues.cardNumber"
+            v-model="formValues.cardExpire"
           />
         </div>
         <div class="securityDetail">
@@ -495,7 +524,7 @@
             id="security"
             name="security"
             placeholder=""
-            v-model="formValues.cardNumber"
+            v-model="formValues.cardSecure"
           />
         </div>
       </div>
@@ -558,7 +587,7 @@
           true-value="yes"
           false-value="no"
         />
-        <label for="entertainment">entertainment</label>
+        <label for="entertainment">entertainment:</label>
         <input
           type="checkbox"
           id="entertainment"
@@ -568,7 +597,7 @@
           true-value="yes"
           false-value="no"
         />
-        <label for="Hotel">Hotel / Resorts</label>
+        <label :for="Hotel">Hotel / Resorts</label>
         <input
           type="checkbox"
           id="Hotel"
@@ -603,15 +632,17 @@ export default {
         country: "",
         zipCode: "",
         travelDate: "",
-        destination: [],
-        duringTrip: [],
-        typeOfTrip: [],
+        destination: "",
+        duringTrip: "",
+        typeOfTrip: "",
         flightOnly: "no",
         rentalCar: "no",
         entertainment: "no",
         hotel: "no",
-        cardNumber: "",
         cardName: "",
+        cardNumber: "",
+        cardExpire: "",
+        cardSecure: "",
       },
     };
   },
@@ -812,5 +843,119 @@ input[type="text"] {
   width: 230px;
   height: 50px;
   margin: 0 auto;
+}
+
+.fillTemplate {
+  width: 800px;
+  height: 100%;
+  background-color: rgb(70, 179, 243);
+  margin: 50px auto;
+  border-radius: 15px;
+  box-shadow: 1px 1px 5px 3px rgb(146, 144, 144);
+}
+ul {
+  padding: 25px 10px;
+  margin: 10px auto;
+  width: 750px;
+  flex-wrap: wrap;
+  display: flex;
+  list-style-type: none;
+}
+li {
+  font-weight: 300;
+  color: rgb(248, 248, 248);
+  font-size: 25px;
+  flex-grow: 2;
+  width: 270px;
+  text-decoration: underline;
+  padding-left: 20px;
+}
+li:nth-of-type(1) {
+  flex-grow: 3;
+  width: 230px;
+}
+li:nth-of-type(2) {
+  flex-grow: 3;
+  width: 150px;
+}
+li:nth-of-type(3) {
+  flex-grow: 3;
+  width: 130px;
+  padding-bottom: 5px;
+}
+li:nth-of-type(4) {
+  flex-grow: 2;
+  width: 230px;
+  padding-bottom: 5px;
+}
+li:nth-of-type(5) {
+  flex-grow: 2;
+  width: 250px;
+  padding-bottom: 5px;
+}
+li:nth-of-type(6) {
+  flex-grow: 7;
+  width: 100%;
+  padding-bottom: 5px;
+}
+li:nth-of-type(7) {
+  flex-grow: 8;
+  width: 100%;
+  padding-bottom: 5px;
+}
+li:nth-of-type(8) {
+  flex-grow: 2;
+  width: 350px;
+  padding-bottom: 5px;
+}
+li:nth-of-type(9) {
+  flex-grow: 2;
+  width: 350px;
+  padding-bottom: 5px;
+}
+li:nth-of-type(10) {
+  flex-grow: 2;
+  width: 280px;
+  padding-bottom: 50px;
+}
+li:nth-of-type(12) {
+  flex-grow: 2;
+  width: 300px;
+  padding-bottom: 5px;
+}
+li:nth-of-type(13) {
+  flex-grow: 2;
+  width: 300px;
+  padding-bottom: 5px;
+}
+li:nth-of-type(14) {
+  flex-grow: 2;
+  width: 352px;
+  padding-bottom: 50px;
+}
+li:nth-of-type(15) {
+  flex-grow: 2;
+  width: 350px;
+  padding-bottom: 5px;
+}
+li:nth-of-type(16) {
+  flex-grow: 4;
+  width: 160px;
+  padding-bottom: 50px;
+}
+li:nth-of-type(17) {
+  flex-grow: 4;
+  width: 160px;
+  padding-bottom: 5px;
+}
+li:nth-of-type(18) {
+  flex-grow: 4;
+  width: 185px;
+  padding-bottom: 5px;
+}
+li:nth-of-type(19) {
+  flex-grow: 4;
+  width: 135px;
+  padding-bottom: 5px;
 }
 </style>
