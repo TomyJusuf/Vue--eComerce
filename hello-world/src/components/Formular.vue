@@ -4,35 +4,40 @@
       {{ JSON.stringify(formValues, null, 5) }}
     </pre>
   </div> -->
-
-  <div class="fillTemplate">
-    <ul>
-      <li>First name:{{ formValues.firstName }}</li>
-      <li>Last name:{{ formValues.lastName }}</li>
-      <li>Birthdate:{{ formValues.date }}</li>
-      <li>E-mail:{{ formValues.eMail }}</li>
-      <li>Phone number:{{ formValues.phoneNumber }}</li>
-      <li>Adresse 1:{{ formValues.adreseStreet1 }}</li>
-      <li>Adresse 2:{{ formValues.adreseStreet2 }}</li>
-      <li>City:{{ formValues.city }}</li>
-      <li>State:{{ formValues.state }}</li>
-      <li>Country:{{ formValues.country }}</li>
-      <li>Zip code:{{ formValues.zipCode }}</li>
-      <li>Date of travel:{{ formValues.travelDate }}</li>
-      <li>Destination:{{ formValues.destination }}</li>
-      <li>During of trip:{{ formValues.duringTrip }}</li>
-      <li>Type of trip:{{ formValues.typeOfTrip }}</li>
-      <li>Fligh only:{{ formValues.flightOnly }}</li>
-      <li>Rent card:{{ formValues.rentalCar }}</li>
-      <li>Entertainmet: {{ formValues.entertainment }}</li>
-      <li>Hotel:{{ formValues.hotel }}</li>
-      <li>Name of card:{{ formValues.cardName }}</li>
-      <li>Card number:{{ formValues.cardNumber }}</li>
-      <li>Card expire:{{ formValues.cardExpire }}</li>
-      <li>Card secure:{{ formValues.cardSecure }}</li>
-    </ul>
+  <div class="center-form">
+    <div class="fillTemplate" :class="toggleClass">
+      <div class="closeBar">
+        <div class="cross" v-on:click="switchBar = !switchBar">
+          <div class="a"></div>
+        </div>
+      </div>
+      <ul>
+        <li>First name:{{ formValues.firstName }}</li>
+        <li>Last name:{{ formValues.lastName }}</li>
+        <li>Birthdate:{{ formValues.date }}</li>
+        <li>E-mail:{{ formValues.eMail }}</li>
+        <li>Phone number:{{ formValues.phoneNumber }}</li>
+        <li>Adresse 1:{{ formValues.adreseStreet1 }}</li>
+        <li>Adresse 2:{{ formValues.adreseStreet2 }}</li>
+        <li>City:{{ formValues.city }}</li>
+        <li>State:{{ formValues.state }}</li>
+        <li>Country:{{ formValues.country }}</li>
+        <li>Zip code:{{ formValues.zipCode }}</li>
+        <li>Date of travel:{{ formValues.travelDate }}</li>
+        <li>Destination:{{ formValues.destination }}</li>
+        <li>During of trip:{{ formValues.duringTrip }}</li>
+        <li>Type of trip:{{ formValues.typeOfTrip }}</li>
+        <li>Fligh only:{{ formValues.flightOnly }}</li>
+        <li>Rent card:{{ formValues.rentalCar }}</li>
+        <li>Entertainmet: {{ formValues.entertainment }}</li>
+        <li>Hotel:{{ formValues.hotel }}</li>
+        <li>Name of card:{{ formValues.cardName }}</li>
+        <li>Card number:{{ formValues.cardNumber }}</li>
+        <li>Card expire:{{ formValues.cardExpire }}</li>
+        <li>Card secure:{{ formValues.cardSecure }}</li>
+      </ul>
+    </div>
   </div>
-
   <div class="formular">
     <form action="" @submit="submitForm">
       <h2>Travel Information</h2>
@@ -619,6 +624,7 @@ export default {
   name: "FormTable",
   data() {
     return {
+      switchBar: false,
       formValues: {
         firstName: "",
         lastName: "",
@@ -650,6 +656,13 @@ export default {
     submitForm(even) {
       event.preventDefault();
       console.log("form values", this.formValues);
+    },
+  },
+  computed: {
+    toggleClass() {
+      return {
+        clase: this.switchBar,
+      };
     },
   },
 };
@@ -847,11 +860,13 @@ input[type="text"] {
 
 .fillTemplate {
   width: 800px;
-  height: 100%;
+  height: 70%;
   background-color: rgb(70, 179, 243);
   margin: 50px auto;
   border-radius: 15px;
   box-shadow: 1px 1px 5px 3px rgb(146, 144, 144);
+  position: fixed;
+  z-index: 10;
 }
 ul {
   padding: 25px 10px;
@@ -957,5 +972,91 @@ li:nth-of-type(19) {
   flex-grow: 4;
   width: 135px;
   padding-bottom: 5px;
+}
+/** close tag */
+.closeBar {
+  display: flex;
+  justify-content: end;
+}
+.cross {
+  cursor: pointer;
+  height: 40px;
+  width: 40px;
+  display: flex;
+  position: relative;
+  justify-content: center !important;
+  align-items: center;
+  background-color: #fff;
+  margin-top: 15px;
+  margin-right: 15px;
+  border-radius: 10px;
+}
+.a {
+  position: relative;
+  width: 25px;
+  height: 2px;
+  /* margin-right: 10px; */
+  /* margin-top: 20px; */
+  background-color: #131212;
+  color: #000;
+  transition: all 0.1s ease-in;
+}
+.a::before {
+  content: "";
+  width: 25px;
+  height: 1px;
+  padding: 1px;
+  background-color: rgb(10, 10, 10);
+  color: #000;
+  position: absolute;
+  margin-top: 7px;
+  /* margin-left: -2px; */
+  transition: all 0.5s ease-in-out;
+}
+.a::after {
+  /* margin-left: 5px; */
+  position: absolute;
+  margin-top: -8px;
+  content: "";
+  width: 25px;
+  height: 1px;
+  padding: 1px;
+  background-color: rgb(13, 14, 13);
+  color: #000;
+  transition: all 0.5s ease-in-out;
+}
+
+.cross:hover .a {
+  cursor: pointer;
+  position: absolute;
+  width: 0px;
+  margin-left: -15px;
+  background-color: none;
+}
+.cross:hover .a::after {
+  cursor: pointer;
+  width: 25px;
+  position: absolute;
+  margin-top: 1px;
+  transform: rotate(-45deg);
+  margin-left: -5px;
+  background-color: #000000;
+}
+.cross:hover .a::before {
+  cursor: pointer;
+  position: absolute;
+  margin-top: 0px;
+  width: 25px;
+  margin-left: -5px !important;
+  transform: rotate(45deg);
+  background-color: #0c0c0c;
+}
+.clase {
+  transition: 0.2s ease-in-out;
+  display: none;
+}
+.center-form {
+  display: flex;
+  justify-content: center;
 }
 </style>
