@@ -39,7 +39,7 @@
     </div>
   </div>
   <div class="formular">
-    <form action="" @submit="submitForm">
+    <form action="" @submit.prevent="submitForm">
       <h2>Travel Information</h2>
       <div class="form-name">
         <label class="firstName" for="firstName">First Name: </label>
@@ -47,7 +47,12 @@
           type="text"
           name="firstName"
           id="firstName"
-          v-model="formValues.firstName"
+          v-model.lazy="formValues.firstName"
+          :style="
+            !formValues.firstName
+              ? 'border-color:red'
+              : 'border:green 2.5px solid'
+          "
           required
         />
         <label class="lastName" for="lastName">Last Name: </label>
@@ -57,9 +62,22 @@
           id="lastName"
           required
           v-model="formValues.lastName"
+          :style="
+            !formValues.lastName
+              ? 'border-color:red'
+              : 'border:green 2.5px solid'
+          "
         />*
         <label class="date" for="date">Date:</label>
-        <input type="date" id="date" name="date" v-model="formValues.date" />
+        <input
+          type="date"
+          id="date"
+          name="date"
+          v-model="formValues.date"
+          :style="
+            !formValues.date ? 'border-color:red' : 'border:green 2.5px solid'
+          "
+        />
       </div>
 
       <div class="form-example">
@@ -70,6 +88,9 @@
           id="email"
           required
           v-model="formValues.eMail"
+          :style="
+            !formValues.eMail ? 'border-color:red' : 'border:green 2.5px solid'
+          "
         />
         <label class="phoneNumber" for="phoneNumber">Phone Number: </label>
         <input
@@ -78,6 +99,11 @@
           id="phoneNumber"
           required
           v-model="formValues.phoneNumber"
+          :style="
+            !formValues.phoneNumber
+              ? 'border-color:red'
+              : 'border:green 2.5px solid'
+          "
         />
       </div>
 
@@ -89,6 +115,11 @@
           id="address"
           required
           v-model="formValues.adreseStreet1"
+          :style="
+            !formValues.adreseStreet1
+              ? 'border-color:red'
+              : 'border:green 2.5px solid'
+          "
         />
       </div>
 
@@ -100,6 +131,11 @@
           id="address"
           required
           v-model="formValues.adreseStreet2"
+          :style="
+            !formValues.adreseStreet2
+              ? 'border-color:red'
+              : 'border:green 2.5px solid'
+          "
         />
       </div>
 
@@ -111,6 +147,9 @@
           id="city"
           required
           v-model="formValues.city"
+          :style="
+            !formValues.city ? 'border-color:red' : 'border:green 2.5px solid'
+          "
         />
 
         <label for="state" class="state">State / Province</label>
@@ -120,9 +159,21 @@
           id="state"
           required
           v-model="formValues.state"
+          :style="
+            !formValues.state ? 'border-color:red' : 'border:green 2.5px solid'
+          "
         />
         <label for="country" class="country">Country</label>
-        <select id="country" name="country" v-model="formValues.country">
+        <select
+          id="country"
+          name="country"
+          v-model="formValues.country"
+          :style="
+            !formValues.country
+              ? 'border-color:red'
+              : 'border:green 2.5px solid'
+          "
+        >
           <option>country</option>
           <option value="Afghanistan">Afghanistan</option>
           <option value="Aland Islands">Åland Islands</option>
@@ -418,6 +469,11 @@
           id="zipCode"
           required
           v-model="formValues.zipCode"
+          :style="
+            !formValues.zipCode
+              ? 'border-color:red'
+              : 'border:green 2.5px solid'
+          "
         />
       </div>
       <hr style="margin: 35px 0" />
@@ -431,6 +487,11 @@
             id="dateDetail"
             name="date"
             v-model="formValues.travelDate"
+            :style="
+              !formValues.travelDate
+                ? 'border-color:red'
+                : 'border:green 2.5px solid'
+            "
           />
         </div>
         <div class="destination">
@@ -442,6 +503,11 @@
             id="destination"
             multiple
             v-model="formValues.destination"
+            :style="
+              !formValues.destination
+                ? 'border-color:red'
+                : 'border:green 2.5px solid'
+            "
           >
             <option value="">Select country</option>
             <option value="Paris">Paris</option>
@@ -500,6 +566,11 @@
             name="firstNameCard"
             placeholder="Enter card number"
             v-model="formValues.cardName"
+            :style="
+              !formValues.cardName
+                ? 'border-color:red'
+                : 'border:green 2.5px solid'
+            "
           />
         </div>
         <div class="cardNumberInfo">
@@ -510,6 +581,11 @@
             name="firstNameCard"
             placeholder="Enter card number"
             v-model="formValues.cardNumber"
+            :style="
+              !formValues.cardNumber
+                ? 'border-color:red'
+                : 'border:green 2.5px solid'
+            "
           />
         </div>
         <div class="expirationDetail">
@@ -520,6 +596,11 @@
             name="expiration"
             placeholder="expiration"
             v-model="formValues.cardExpire"
+            :style="
+              !formValues.cardExpire
+                ? 'border-color:red'
+                : 'border:green 2.5px solid'
+            "
           />
         </div>
         <div class="securityDetail">
@@ -530,6 +611,11 @@
             name="security"
             placeholder=""
             v-model="formValues.cardSecure"
+            :style="
+              !formValues.cardSecure
+                ? 'border-color:red'
+                : 'border:green 2.5px solid'
+            "
           />
         </div>
       </div>
@@ -602,7 +688,7 @@
           true-value="yes"
           false-value="no"
         />
-        <label :for="Hotel">Hotel / Resorts</label>
+        <label for="Hotel">Hotel / Resorts</label>
         <input
           type="checkbox"
           id="Hotel"
@@ -614,7 +700,12 @@
         />
       </div>
       <hr style="margin: 35px 0" />
-      <button>Submit</button>
+      <input type="checkbox" v-model="agreement" name="agreement" />
+
+      <label for="agreement"> I agree to the terms and conditions </label>
+      <button v-on:click="switchBar = !switchBar" :disabled="!agreement">
+        Continue
+      </button>
     </form>
   </div>
 </template>
@@ -624,7 +715,8 @@ export default {
   name: "FormTable",
   data() {
     return {
-      switchBar: false,
+      switchBar: true,
+      agreement: false,
       formValues: {
         firstName: "",
         lastName: "",
@@ -638,7 +730,7 @@ export default {
         country: "",
         zipCode: "",
         travelDate: "",
-        destination: "",
+        destination: [],
         duringTrip: "",
         typeOfTrip: "",
         flightOnly: "no",
@@ -650,11 +742,11 @@ export default {
         cardExpire: "",
         cardSecure: "",
       },
+      error: [],
     };
   },
   methods: {
-    submitForm(even) {
-      event.preventDefault();
+    submitForm() {
       console.log("form values", this.formValues);
     },
   },
@@ -860,7 +952,7 @@ input[type="text"] {
 
 .fillTemplate {
   width: 800px;
-  height: 70%;
+  height: 80%;
   background-color: rgb(70, 179, 243);
   margin: 50px auto;
   border-radius: 15px;
@@ -883,24 +975,24 @@ li {
   flex-grow: 2;
   width: 270px;
   text-decoration: underline;
-  padding-left: 20px;
+  padding-left: 10px;
 }
 li:nth-of-type(1) {
-  flex-grow: 3;
-  width: 230px;
+  flex-grow: 2;
+  width: 300px;
 }
 li:nth-of-type(2) {
-  flex-grow: 3;
-  width: 150px;
+  flex-grow: 2;
+  width: 250px;
 }
 li:nth-of-type(3) {
-  flex-grow: 3;
-  width: 130px;
+  flex-grow: 2;
+  width: 270px;
   padding-bottom: 5px;
 }
-li:nth-of-type(4) {
+li:nth-of-type(2) {
   flex-grow: 2;
-  width: 230px;
+  width: 300px;
   padding-bottom: 5px;
 }
 li:nth-of-type(5) {
