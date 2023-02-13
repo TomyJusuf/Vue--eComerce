@@ -766,6 +766,8 @@ export default {
   display: flex;
   margin: 0 auto;
   background-color: rgb(233, 230, 230);
+  position: relative;
+  z-index: 100;
 }
 form {
   width: 750px;
@@ -957,8 +959,8 @@ input[type="text"] {
   margin: 50px auto;
   border-radius: 15px;
   box-shadow: 1px 1px 5px 3px rgb(146, 144, 144);
-  position: fixed;
-  z-index: 10;
+  position: absolute;
+  z-index: 1000;
 }
 ul {
   padding: 25px 10px;

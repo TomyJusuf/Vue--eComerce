@@ -1,18 +1,19 @@
 <template>
-  <!-- <Navbar /> -->
-  <!-- <CardSection /> -->
+  <Navbar />
+  <CardSection />
   <Formular />
 </template>
 
 <script>
-// import CardSection from "./components/CardSection.vue";
-// import Navbar from "./components/Navbar.vue";
+import CardSection from "./components/CardSection.vue";
+import Navbar from "./components/Navbar.vue";
 import Formular from "./components/Formular.vue";
 export default {
   name: "App",
   data() {
     return {
       volume: 0,
+      // switchBar: false,
     };
   },
   methods: {},
@@ -20,6 +21,8 @@ export default {
 
   components: {
     Formular,
+    Navbar,
+    CardSection,
   },
 };
 </script>
@@ -40,6 +43,7 @@ export default {
   color: rgb(41, 36, 36);
   /* margin-top: 0px; */
 }
+
 /* form {
   display: flex;
   flex-wrap: wrap;

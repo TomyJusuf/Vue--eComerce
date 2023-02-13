@@ -25,6 +25,7 @@
               <h3 class="total-text">Total:</h3>
               <h3 class="total-price-value">{{ totalPrice }} &#8364;</h3>
             </div>
+            <button v-on:click="switchBar = !switchBar">Submit</button>
           </ul>
         </div>
         <i class="fa-solid fa-question"></i>
